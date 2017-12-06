@@ -1,0 +1,20 @@
+.jumbotron {
+	background-image: url("./img/header.jpeg");
+	background-size: cover;
+}
+
+.card-img-bottom {
+  color: #fff;
+  height: 20rem;
+  background: url(./img/book.png) center no-repeat;
+  background-size: contain;
+}
+
+.card {
+	margin-bottom: 10px;
+	padding: 10px;
+}
+
+.col-form-label {
+	word-wrap: break-word;
+}
