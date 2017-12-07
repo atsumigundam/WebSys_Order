@@ -7,16 +7,15 @@ use Illuminate\Support\Facades\DB;
 
 class DbController extends Controller
 {
-    public function index()
-    {
-    	$shop_name = DB::select('select name from test.shop where id = ?', ['0001']);
-
-    	return view('test', ['shop_name' => $shop_name[0]->name]);
-    }
     public function input($shop_id)
     {
-    	$shop = DB::select('select * from test.shop where id = ?', [$shop_id]);
+    	$shop = DB::select('select name,address,phone from test.shop where id = ?', [$shop_id]);
+        $shop_name = $shop[0]->name;
+        $shop_address = $shop[0]->address;
+        $shop_phone = $shop[0]->phone;
 
-    	return view('input', ['shop_id' => $shop_id, 'shop_name' => $shop[0]->name, 'shop_address' => $shop[0]->address, 'shop_phone' => $shop[0]->phone]);
+        session(['shop_name' => $shop_name, 'shop_address' => $shop_address, 'shop_phone' => $shop_phone]);
+
+    	return view('input', ['shop_id' => $shop_id, 'shop_name' => $shop_name, 'shop_address' => $shop_address, 'shop_phone' => $shop_phone]);
     }
 }

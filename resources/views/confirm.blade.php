@@ -85,7 +85,7 @@
 					</div>
 					<p class="center">
 						<button class="btn btn-outline-primary" type="submit">決定</button>
-						<button class="btn btn-outline-primary" type="button">修正</button>
+						<button class="btn btn-outline-primary" type="submit" name="button" value="back">修正</button>
 					</p>
 				</form>
 			</div>

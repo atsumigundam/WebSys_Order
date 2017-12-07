@@ -18,11 +18,13 @@
 	</div>
 	<div class="container">
 		<div class="body_test">
-			<p class="center">
-				<label>ご注文が完了しました</label><br>
-				<label>{{ $first_name }}</label>
-				<button class="btn btn-outline-primary" type="button" onclick="location.href='kadai2.html'">検索トップへもどる</button>
-			</p>
+			<div class="center">
+				<label>ご注文が完了しました</label>
+				<p>
+					<label>{{ $first_name }} {{ $last_name }} 様</label>
+				</p>
+				<button class="btn btn-outline-primary" type="button">検索トップへもどる</button>
+			</div>
 		</div>
 	</div>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>

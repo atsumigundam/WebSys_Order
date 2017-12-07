@@ -18,15 +18,28 @@ class FormController extends Controller
     	$tel = $request->input('tel');
     	$email = $request->input('email');
 
-    	$shop = DB::select('select * from test.shop where id = ?', [$shop_id]);
+    	session(['first_name' => $first_name, 'last_name' => $last_name, 'tel' => $tel, 'email' => $email]);
+
+    	$shop_name = $request->session()->get('shop_name');
+    	$shop_address = $request->session()->get('shop_address');
+    	$shop_phone = $request->session()->get('shop_phone');
 
     	return view('confirm', ['first_name' => $first_name, 'last_name' => $last_name, 'tel' => $tel, 'email' => $email,
-    		'shop_id' => $shop_id, 'shop_name' => $shop[0]->name, 'shop_address' => $shop[0]->address, 'shop_phone' => $shop[0]->phone]);
+    		'shop_id' => $shop_id, 'shop_name' => $shop_name, 'shop_address' => $shop_address, 'shop_phone' => $shop_phone]);
     }
 
     public function orderedResult(Request $request, $shop_id)
     {
-    	//$first_name = $request->input('first_name');
-    	return view('ordered', "fas");
+    	if ($request->get('button') === 'back') {
+    		return redirect("order/$shop_id")->withInput();
+    	}
+
+    	$first_name = $request->session()->get('first_name');
+    	$last_name = $request->session()->get('last_name');
+
+    	// ブラウザリロード等での二重送信防止
+        $request->session()->regenerateToken();
+
+    	return view('ordered', ['first_name' => $first_name, 'last_name' => $last_name]);
     }
 }
