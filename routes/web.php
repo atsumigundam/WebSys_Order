@@ -19,6 +19,8 @@ Route::get('/dbtest', 'DbController@index');
 
 Route::get('/order/{shop_id}', 'DbController@input');
 
+Route::post('/order/confirm', 'FormController@formResult');
+
 Route::get('order/', function () {
 	return view('input', ['shop_name' => "てｓｔ", 'shop_address' => "てｓと", 'shop_phone' => "てｓつお"]);
 });
