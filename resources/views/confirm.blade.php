@@ -41,9 +41,9 @@
 				<div class="col-sm-6">
 					<div class="card">
 						<div class="card-block">
-							<h4 class="card-title">店舗名</h4>
-							<p class="card-text">店舗住所</p>
-							<p class="card-text">電話番号</p>
+							<h4 class="card-title">{{ $shop_name }}</h4>
+							<p class="card-text">{{ $shop_address }}</p>
+							<p class="card-text">{{ $shop_phone }}</p>
 							<div id="map_container">
 								<div id="map"></div>
 								<script type="text/javascript">
@@ -65,10 +65,11 @@
 			</div>
 			<div>
 				<h3>購入者情報</h3>
-				<form>
+				<form action="ordered" method="post">
+				{!! csrf_field() !!}
 					<div class="form-group row">
 						<label for="first_name" class="col-2 col-form-label">姓</label>
-						<label class="col-10 col-form-label" name="first-name" id="first_name">{{ $first_name }}</label>
+						<label class="col-10 col-form-label" name="first_name" id="first_name">{{ $first_name }}</label>
 					</div>
 					<div class="form-group row">
 						<label for="last_name" class="col-2 col-form-label">名</label>

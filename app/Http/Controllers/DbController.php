@@ -17,6 +17,6 @@ class DbController extends Controller
     {
     	$shop = DB::select('select * from test.shop where id = ?', [$shop_id]);
 
-    	return view('input', ['shop_name' => $shop[0]->name, 'shop_address' => $shop[0]->address, 'shop_phone' => $shop[0]->phone]);
+    	return view('input', ['shop_id' => $shop_id, 'shop_name' => $shop[0]->name, 'shop_address' => $shop[0]->address, 'shop_phone' => $shop[0]->phone]);
     }
 }

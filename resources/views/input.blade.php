@@ -66,12 +66,12 @@
 			</div>
 			<div>
 				<h3>購入者情報</h3>
-				<form action="confirm" method="post">
+				<form action="<?php echo $shop_id; ?>/confirm" method="post">
 					{!! csrf_field() !!}
 					<div class="form-group row">
 						<label for="first_name" class="col-2 col-form-label">姓</label>
 						<div class="col-10">
-							<input class="form-control" type="text" name="first_name" id="first_name" placeholder="山田">
+							<input class="form-control" type="text" name="first_name" id="first_name" placeholder="山田" value="山田">
 						</div>
 						@if ($errors->has('first_name'))
                     		<span class="help-block">
@@ -82,7 +82,7 @@
 					<div class="form-group row">
 						<label for="last_name" class="col-2 col-form-label">名</label>
 						<div class="col-10">
-							<input class="form-control" type="text" name="last_name" id="last_name" placeholder="太郎">
+							<input class="form-control" type="text" name="last_name" id="last_name" placeholder="太郎" value="太郎">
 						</div>
 						@if ($errors->has('last_name'))
                     		<span class="help-block">
@@ -93,7 +93,7 @@
 					<div class="form-group row">
 						<label for="tel" class="col-2 col-form-label">電話番号</label>
 						<div class="col-10">
-							<input class="form-control" type="tel" name="tel" id="tel" placeholder="000-0000-0000">
+							<input class="form-control" type="tel" name="tel" id="tel" placeholder="000-0000-0000" value="00000000">
 						</div>
 						@if ($errors->has('tel'))
                     		<span class="help-block">
@@ -104,7 +104,7 @@
 					<div class="form-group row">
 						<label for="email" class="col-2 col-form-label">メールアドレス</label>
 						<div class="col-10">
-							<input class="form-control" type="email" name="email" id="email" placeholder="example@gmail.com">
+							<input class="form-control" type="email" name="email" id="email" placeholder="example@gmail.com" value="example@gmail.com">
 						</div>
 						@if ($errors->has('email'))
                     		<span class="help-block">
