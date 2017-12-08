@@ -24,7 +24,7 @@
 					<label>{{ $first_name }} {{ $last_name }} 様</label><br>
 					<label>{{ $book_name}} {{ $book_price}} 円(税抜)</label><br>
 					<label>{{ $shop_name }}</label><br>
-					<label>{{ $shop_address }}</label>
+					<a href="https://maps.google.com/maps?q=<?php echo $shop_address; ?>">{{ $shop_address }}</>
 				</p>
 				<button class="btn btn-outline-primary" type="button">検索トップへもどる</button>
 			</div>
