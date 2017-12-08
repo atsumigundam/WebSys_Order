@@ -21,7 +21,10 @@
 			<div class="center">
 				<label>ご注文が完了しました</label>
 				<p>
-					<label>{{ $first_name }} {{ $last_name }} 様</label>
+					<label>{{ $first_name }} {{ $last_name }} 様</label><br>
+					<label>{{ $book_name}} {{ $book_price}} 円(税抜)</label><br>
+					<label>{{ $shop_name }}</label><br>
+					<label>{{ $shop_address }}</label>
 				</p>
 				<button class="btn btn-outline-primary" type="button">検索トップへもどる</button>
 			</div>

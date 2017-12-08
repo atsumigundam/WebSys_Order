@@ -24,11 +24,11 @@
 						<div class="row">
 							<div class="col-md-8">
 								<div class="card-block">
-									<h4 class="card-title">書籍タイトル</h4>
-									<p class="card-text">著者</p>
-									<p class="card-text">出版社</p>
-									<p class="card-text">出版日</p>
-									<p class="card-text">書籍説明</p>
+									<h4 class="card-title">{{ $book_name }}</h4>
+									<p class="card-text">{{ $book_author }}</p>
+									<p class="card-text">{{ $book_publisher }}</p>
+									<p class="card-text">{{ $book_date }}</p>
+									<p class="card-text">{{ $book_price }} 円(税抜)</p>
 								</div>
 							</div>
 							<div class="col-md-4">

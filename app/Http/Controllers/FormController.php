@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\DB;
 
 class FormController extends Controller
 {
-    //
     public function formResult(OrderForm $request, $shop_id)
     {
     	$first_name = $request->input('first_name');
@@ -20,18 +19,22 @@ class FormController extends Controller
 
     	session(['first_name' => $first_name, 'last_name' => $last_name, 'tel' => $tel, 'email' => $email]);
 
-    	$shop_name = $request->session()->get('shop_name');
-    	$shop_address = $request->session()->get('shop_address');
-    	$shop_phone = $request->session()->get('shop_phone');
+    	$shop = $request->session()->get('shop');
+
+        $book = $request->session()->get('book');
 
     	return view('confirm', ['first_name' => $first_name, 'last_name' => $last_name, 'tel' => $tel, 'email' => $email,
-    		'shop_id' => $shop_id, 'shop_name' => $shop_name, 'shop_address' => $shop_address, 'shop_phone' => $shop_phone]);
+    		'shop_id' => $shop->id, 'shop_name' => $shop->name, 'shop_address' => $shop->address, 'shop_phone' => $shop->phone,
+            'book_name' => $book->name, 'book_author' => $book->author, 'book_publisher' => $book->publisher, 'book_date' => $book->date, 'book_price' => $book->price]);
     }
 
     public function orderedResult(Request $request, $shop_id)
     {
+        $shop = $request->session()->get('shop');
+        $book = $request->session()->get('book');
+
     	if ($request->get('button') === 'back') {
-    		return redirect("order/$shop_id")->withInput();
+    		return redirect("order/$book->ISBN/$shop->id")->withInput();
     	}
 
     	$first_name = $request->session()->get('first_name');
@@ -40,6 +43,8 @@ class FormController extends Controller
     	// ブラウザリロード等での二重送信防止
         $request->session()->regenerateToken();
 
-    	return view('ordered', ['first_name' => $first_name, 'last_name' => $last_name]);
+    	return view('ordered', ['first_name' => $first_name, 'last_name' => $last_name,
+                                'book_name' => $book->name, 'book_price' => $book->price,
+                                'shop_name' => $shop->name, 'shop_address' => $shop->address]);
     }
 }

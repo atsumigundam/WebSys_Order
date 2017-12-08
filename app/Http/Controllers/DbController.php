@@ -7,15 +7,15 @@ use Illuminate\Support\Facades\DB;
 
 class DbController extends Controller
 {
-    public function input($shop_id)
+    public function input($isbn, $shop_id)
     {
-    	$shop = DB::select('select name,address,phone from test.shop where id = ?', [$shop_id]);
-        $shop_name = $shop[0]->name;
-        $shop_address = $shop[0]->address;
-        $shop_phone = $shop[0]->phone;
+        $shop = DB::table('shop')->where('id', $shop_id)->first();
+        session(['shop' => $shop]);
 
-        session(['shop_name' => $shop_name, 'shop_address' => $shop_address, 'shop_phone' => $shop_phone]);
+        $book = DB::table('books')->where('ISBN', $isbn)->first();
+        session(['book' => $book]);
 
-    	return view('input', ['shop_id' => $shop_id, 'shop_name' => $shop_name, 'shop_address' => $shop_address, 'shop_phone' => $shop_phone]);
+    	return view('input', ['shop_id' => $shop->id, 'shop_name' => $shop->name, 'shop_address' => $shop->address, 'shop_phone' => $shop->phone, 
+            'book_name' => $book->name, 'book_author' => $book->author, 'book_publisher' => $book->publisher, 'book_date' => $book->date, 'book_price' => $book->price]);
     }
 }

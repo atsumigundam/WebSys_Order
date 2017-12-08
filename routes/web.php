@@ -15,11 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/order/{shop_id}', 'DbController@input');
+Route::get('/order/{isbn}/{shop_id}', 'DbController@input');
 
-Route::post('/order/{shop_id}/confirm', 'FormController@formResult');
+Route::post('/order/{isbn}/{shop_id}/confirm', 'FormController@formResult');
 
-Route::post('/order/{shop_id}/ordered', 'FormController@orderedResult');
+Route::post('/order/{isbn}/{shop_id}/ordered', 'FormController@orderedResult');
 
 Route::get('order/', function () {
 	return view('input', ['shop_name' => "てｓｔ", 'shop_address' => "てｓと", 'shop_phone' => "てｓつお"]);
