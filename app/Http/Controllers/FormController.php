@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\OrderForm;
 use Illuminate\Support\Facades\DB;
+use \Datetime;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\OrderReceived;
 
 
 class FormController extends Controller
@@ -39,6 +42,24 @@ class FormController extends Controller
 
     	$first_name = $request->session()->get('first_name');
     	$last_name = $request->session()->get('last_name');
+        $tel = $request->session()->get('tel');
+        $email = $request->session()->get('email');
+
+        $full_name = $first_name.$last_name;
+        
+        //現在時刻の取得
+        $date = new DateTime();
+
+        DB::table('orders')->insert(
+            ['ISBN' => $book->ISBN, '注文年月日時分' => $date->format('Y-m-d H:i:s'), '注文者名' => $full_name,
+                '電話番号' => $tel, 'メールアドレス' => $email]
+        );
+
+        //注文番号の取得
+        $order_id = DB::getPdo()->lastInsertId();
+
+        //受付完了メール送信
+        Mail::to($email)->send(new OrderReceived($order_id, $book, $shop));
 
     	// ブラウザリロード等での二重送信防止
         $request->session()->regenerateToken();
