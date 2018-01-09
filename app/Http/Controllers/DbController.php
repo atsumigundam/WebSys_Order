@@ -16,6 +16,10 @@ class DbController extends Controller
         session(['book' => $book]);
 
     	return view('input', ['shop_id' => $shop->id, 'shop_name' => $shop->name, 'shop_address' => $shop->address, 'shop_phone' => $shop->phone, 
-                    'book_name' => $book->name, 'book_author' => $book->author, 'book_publisher' => $book->publisher, 'book_date' => $book->date, 'book_price' => $book->price]);
+                    'book_name' => $book->name, 'book_author' => $book->author, 'book_publisher' => $book->publisher, 'book_date' => $book->date, 'book_price' => $book->price, 'book_cover' => $book->cover]);
+    }
+
+    public function to_zaiko($isbn) {
+    	return redirect("/zaiko/$isbn");
     }
 }

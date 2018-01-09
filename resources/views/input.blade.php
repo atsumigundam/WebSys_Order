@@ -32,9 +32,8 @@
 									<p class="card-text">{{ $book_price }} 円(税抜)</p>
 								</div>
 							</div>
-							<div class="col-md-4">
-								<div class="card-img-bottom">
-								</div>
+							<div class="col-md-4 card-img-bottom">
+								<img src="{{ $book_cover }}" class="img-fluid">
 							</div>
 						</div>
 					</div>
@@ -66,12 +65,13 @@
 			</div>
 			<div>
 				<h3>購入者情報</h3>
-				<form action="<?php echo $shop_id; ?>/confirm" method="post">
+				<form id="form" action="<?php echo $shop_id; ?>/confirm#form" method="post">
+					<a name="form"></a>
 					{!! csrf_field() !!}
 					<div class="form-group row">
 						<label for="first_name" class="col-2 col-form-label">姓</label>
 						<div class="col-10">
-							<input class="form-control" type="text" name="first_name" id="first_name" placeholder="山田" value="山田">
+							<input class="form-control" type="text" name="first_name" id="first_name" placeholder="山田" value="{{ old('first_name') }}" >
 						</div>
 						@if ($errors->has('first_name'))
                     		<span class="help-block">
@@ -82,7 +82,7 @@
 					<div class="form-group row">
 						<label for="last_name" class="col-2 col-form-label">名</label>
 						<div class="col-10">
-							<input class="form-control" type="text" name="last_name" id="last_name" placeholder="太郎" value="太郎">
+							<input class="form-control" type="text" name="last_name" id="last_name" placeholder="太郎" value="{{ old('last_name') }}" >
 						</div>
 						@if ($errors->has('last_name'))
                     		<span class="help-block">
@@ -93,7 +93,7 @@
 					<div class="form-group row">
 						<label for="tel" class="col-2 col-form-label">電話番号</label>
 						<div class="col-10">
-							<input class="form-control" type="tel" name="tel" id="tel" placeholder="000-0000-0000" value="00000000">
+							<input class="form-control" type="tel" name="tel" id="tel" placeholder="000-0000-0000" value="{{ old('tel') }}">
 						</div>
 						@if ($errors->has('tel'))
                     		<span class="help-block">
@@ -104,7 +104,7 @@
 					<div class="form-group row">
 						<label for="email" class="col-2 col-form-label">メールアドレス</label>
 						<div class="col-10">
-							<input class="form-control" type="email" name="email" id="email" placeholder="example@gmail.com" value="example@gmail.com">
+							<input class="form-control" type="email" name="email" id="email" placeholder="example@gmail.com" value="{{ old('email') }}">
 						</div>
 						@if ($errors->has('email'))
                     		<span class="help-block">
@@ -114,13 +114,17 @@
 					</div>
 					<p class="center">
 						<button class="btn btn-outline-primary" type="submit">決定</button>
-						<button class="btn btn-outline-primary" type="button">キャンセル</button>
+						<button class="btn btn-outline-primary" type="submit" onclick="cancel()">キャンセル</button>
 					</p>
 				</form>
 			</div>
-			
 		</div>
 	</div>
+	<script type="text/javascript">
+		function cancel() {
+			document.getElementById('form').action = "cancel";
+		}
+	</script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
 </body>
 </html>

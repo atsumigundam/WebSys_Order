@@ -65,7 +65,8 @@
 			</div>
 			<div>
 				<h3>購入者情報</h3>
-				<form action="ordered" method="post">
+				<form name="form" action="ordered" method="post">
+					<a name="form"></a>
 				{!! csrf_field() !!}
 					<div class="form-group row">
 						<label for="first_name" class="col-2 col-form-label">姓</label>
