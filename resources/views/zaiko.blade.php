@@ -57,28 +57,28 @@
  <tr align="center">
   <td>{{$shop1->name}}</td>
   <td>{{$zaiko1}}</td>
-  <td><form action="order/{{ $ISBN }}/{{ $shop1->id }}" method="get">
+  <td><form action="/order/{{ $ISBN }}/{{ $shop1->id }}" method="get">
 		<button style="width:70px;height:50px;" type="submit">
     	注文へ
 		</button></form></td>
  <tr align="center">
  <td>{{$shop2->name}}</td>
  <td>{{$zaiko2}}</td>
- <td><form action="order/{{ $ISBN }}/{{ $shop2->id }}" method="get" >
+ <td><form action="/order/{{ $ISBN }}/{{ $shop2->id }}" method="get" >
 		<button style="width:70px;height:50px;" type="submit">
     	注文へ
 		</button></form></td>
  <tr align="center">
  <td>{{$shop3->name}}</td>
  <td>{{$zaiko3}}</td>
- <td><form action="order/{{ $ISBN }}/{{ $shop3->id }}" method="get" >
+ <td><form action="/order/{{ $ISBN }}/{{ $shop3->id }}" method="get" >
 		<button style="width:70px;height:50px;" type="submit">
     	注文へ
 		</button></form></td>
  <tr align="center">
  <td>{{$shop4->name}}</td>
  <td>{{$zaiko4}}</td>
- <td><form action="order/{{ $ISBN }}/{{ $shop4->id }}" method="get" >
+ <td><form action="/order/{{ $ISBN }}/{{ $shop4->id }}" method="get" >
 		<button style="width:70px;height:50px;" type="submit">
     	注文へ
 		</button></form></td>
