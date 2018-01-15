@@ -25,8 +25,8 @@
 					<p class="lead wf-sawarabimincho content">本のない部屋は、魂のない肉体のようなものだ。</p>
 					<form action="searchresult">
 						<div class="row">
-							<input type="text" name="searchword" class="form-control col-11">
-							<button class="btn btn-secondary col-1" type="submit"><i class="fa fa-search"></i></button>
+							<input type="text" name="searchword" class="form-control col-md-11 col-sm-10">
+							<button class="btn btn-secondary col-md-1 col-sm-2" type="submit"><i class="fa fa-search"></i></button>
 						</div>
 					</form>
 				</div>
