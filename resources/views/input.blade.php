@@ -20,7 +20,7 @@
 		<div class="body_test">
 			<h3>書籍と店舗情報</h3>
 			<div class="row">
-				<div class="col-sm-6">
+				<div class="col-lg-6">
 					<div class="card">
 						<div class="row">
 							<div class="col-md-8">
@@ -38,7 +38,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-6">
+				<div class="col-lg-6">
 					<div class="card">
 						<div class="card-block">
 							<h4 class="card-title">{{ $shop_name }}</h4>
