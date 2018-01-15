@@ -81,8 +81,8 @@
 					<a name="form"></a>
 					{!! csrf_field() !!}
 					<div class="form-group row">
-						<label for="first_name" class="col-xs-2 col-form-label">姓</label>
-						<div class="col-xs-10">
+						<label for="first_name" class="col-md-2 col-form-label">姓</label>
+						<div class="col-md-10">
 							<input class="form-control" type="text" name="first_name" id="first_name" placeholder="山田" value="{{ old('first_name') }}" >
 						</div>
 						@if ($errors->has('first_name'))
