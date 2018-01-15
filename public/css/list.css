@@ -44,6 +44,14 @@ body {
 	border: 1px solid #ccc;
 }
 
+.container {
+  text-align: center;
+}
+
+.pagination {
+   justify-content: center;
+}
+
 .cover {
   object-fit: cover;
   width: 200px;
