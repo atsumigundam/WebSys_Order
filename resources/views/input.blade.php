@@ -81,8 +81,8 @@
 					<a name="form"></a>
 					{!! csrf_field() !!}
 					<div class="form-group row">
-						<label for="first_name" class="col-md-2 col-form-label">姓</label>
-						<div class="col-md-10">
+						<label for="first_name" class="col-sm-2 col-form-label">姓</label>
+						<div class="col-sm-10">
 							<input class="form-control" type="text" name="first_name" id="first_name" placeholder="山田" value="{{ old('first_name') }}" >
 						</div>
 						@if ($errors->has('first_name'))
@@ -92,8 +92,8 @@
                 		@endif
 					</div>
 					<div class="form-group row">
-						<label for="last_name" class="col-2 col-form-label">名</label>
-						<div class="col-10">
+						<label for="last_name" class="col-md-2 col-form-label">名</label>
+						<div class="col-md-10">
 							<input class="form-control" type="text" name="last_name" id="last_name" placeholder="太郎" value="{{ old('last_name') }}" >
 						</div>
 						@if ($errors->has('last_name'))
@@ -103,8 +103,8 @@
                 		@endif
 					</div>
 					<div class="form-group row">
-						<label for="tel" class="col-2 col-form-label">電話番号</label>
-						<div class="col-10">
+						<label for="tel" class="col-md-2 col-form-label">電話番号</label>
+						<div class="col-md-10">
 							<input class="form-control" type="tel" name="tel" id="tel" placeholder="000-0000-0000" value="{{ old('tel') }}">
 						</div>
 						@if ($errors->has('tel'))
@@ -114,8 +114,8 @@
                 		@endif
 					</div>
 					<div class="form-group row">
-						<label for="email" class="col-2 col-form-label">メールアドレス</label>
-						<div class="col-10">
+						<label for="email" class="col-md-2 col-form-label">メールアドレス</label>
+						<div class="col-md-10">
 							<input class="form-control" type="email" name="email" id="email" placeholder="example@gmail.com" value="{{ old('email') }}">
 						</div>
 						@if ($errors->has('email'))
