@@ -20,6 +20,6 @@ class DbController extends Controller
     }
 
     public function to_zaiko($isbn) {
-    	return redirect("/zaiko/$isbn");
+    	return redirect("/stocks/$isbn");
     }
 }

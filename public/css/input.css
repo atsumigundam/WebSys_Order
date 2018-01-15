@@ -26,10 +26,17 @@ body {
   top: 0;
 }
 
-h3 {
+h2 {
     margin-top: 20px;
     margin-bottom: 20px;
     padding: .25em 0 .5em .75em;
     border-left: 6px solid #ccc;
     border-bottom: 1px solid #ccc;
+}
+
+h3 {
+padding: 0.5em;/*文字周りの余白*/
+color: #494949;/*文字色*/
+background: #DDD;/*背景色*/
+border-left: solid 5px gray;/*左線（実線 太さ 色）*/
 }
