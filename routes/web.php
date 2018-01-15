@@ -23,18 +23,9 @@ Route::post('/order/{isbn}/{shop_id}/confirm', 'FormController@formResult');
 
 Route::post('/order/{isbn}/{shop_id}/ordered', 'FormController@orderedResult');
 
-Route::get('order/', function () {
-	return view('input', ['shop_name' => "てｓｔ", 'shop_address' => "てｓと", 'shop_phone' => "てｓつお"]);
-});
-
 Route::get('/stocks/{isbn}','StockDetailController@index');
 
 Route::post('/order/{isbn}/cancel', 'DbController@to_zaiko');
-
-Route::get('/list', 'ListController@index');
-
-Route::get('/gettest', 'GetTestController@index');
-Route::get('/got', 'GetTestController@got');
 
 Route::get('/search', 'SearchController@index');
 

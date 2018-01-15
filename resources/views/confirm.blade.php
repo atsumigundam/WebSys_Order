@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<title>客注業務</title>
 </head>
 
@@ -19,7 +21,7 @@
 		<div class="body_test">
 			<h3>書籍と店舗情報</h3>
 			<div class="row">
-				<div class="col-sm-6">
+				<div class="col-lg-6">
 					<div class="card">
 						<div class="row">
 							<div class="col-md-8">
@@ -37,7 +39,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-6">
+				<div class="col-lg-6">
 					<div class="card">
 						<div class="card-block">
 							<h4 class="card-title">{{ $shop_name }}</h4>
@@ -79,20 +81,20 @@
 					<a name="form"></a>
 				{!! csrf_field() !!}
 					<div class="form-group row">
-						<label for="first_name" class="col-2 col-form-label">姓</label>
-						<label class="col-10 col-form-label" name="first_name" id="first_name">{{ $first_name }}</label>
+						<label for="first_name" class="col-sm-2 col-form-label">姓</label>
+						<label class="col-sm-10 col-form-label" name="first_name" id="first_name">{{ $first_name }}</label>
 					</div>
 					<div class="form-group row">
-						<label for="last_name" class="col-2 col-form-label">名</label>
-						<label class="col-10 col-form-label" name="last-name" id="last_name">{{ $last_name }}</label>
+						<label for="last_name" class="col-sm-2 col-form-label">名</label>
+						<label class="col-sm-10 col-form-label" name="last-name" id="last_name">{{ $last_name }}</label>
 					</div>
 					<div class="form-group row">
-						<label for="tel" class="col-2 col-form-label">電話番号</label>
-						<label class="col-10 col-form-label" name="tel" id="tel">{{ $tel }}</label>
+						<label for="tel" class="col-2 col-sm-form-label">電話番号</label>
+						<label class="col-sm-10 col-form-label" name="tel" id="tel">{{ $tel }}</label>
 					</div>
 					<div class="form-group row">
-						<label for="email" class="col-2 col-form-label">メールアドレス</label>
-						<label class="col-10 col-form-label" name="email" id="email">{{ $email }}</label>
+						<label for="email" class="col-sm-2 col-form-label">メールアドレス</label>
+						<label class="col-sm-10 col-form-label" name="email" id="email">{{ $email }}</label>
 					</div>
 					<p class="center">
 						<button class="btn btn-outline-primary" type="submit">決定</button>

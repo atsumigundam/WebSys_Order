@@ -33,6 +33,6 @@ class SearchController extends Controller
 		}
 		$books = $query->paginate(16);
 
-    	return view('list', compact('books', 'searchword'));
+    	return view('searchresult', compact('books', 'searchword'));
     }
 }
