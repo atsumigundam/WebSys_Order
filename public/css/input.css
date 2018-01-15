@@ -2,46 +2,10 @@
 	text-align: center;
 }
 
-.span_title {
-	color: #FFFFFF
-}
-
-.box_book {
-    width: 500px;
-    overflow: hidden;
-    border: 1px solid #dddddd;
-    padding: 15px;
-    margin: auto;
-}
-
-.box_book img{
-    padding-right: 15px;
-    float: left;
-}
-
-.box_shop {
-	width: 500px;
-    overflow: hidden;
-    border: 1px solid #dddddd;
-    padding: 15px;
-    margin: 10px auto 10px auto;
-}
-
-.body_white {
-	margin: auto;
-	padding: 10px;
-	background-color: #FFFFFF;
-}
-
 .body_test {
     margin: auto;
     padding: 15px;
-    max-width: 1200px;
     background-color: #FFFFFF;
-}
-
-.body_center {
-	text-align: center;
 }
 
 body {
