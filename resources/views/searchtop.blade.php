@@ -21,7 +21,7 @@
         </div>
         <div class="inner cover">
           <h1 class="cover-heading wf-sawarabimincho title">在庫検索</h1>
-          <p class="lead wf-sawarabimincho content">私は、自分がこれまでに読んだすべてのものの一部である。</p>
+          <p class="lead wf-sawarabimincho content">本のない部屋は、魂のない肉体のようなものだ。</p>
           <form action="searchresult">
             <div class="row">
             <input type="text" name="searchword" class="form-control col-sm-11">
