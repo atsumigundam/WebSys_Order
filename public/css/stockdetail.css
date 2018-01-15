@@ -1,0 +1,23 @@
+body{
+	color:#f8f8ff;
+}
+
+.jumbotron{
+	background:url("./img/stockb.jpeg");
+	background-size: cover;
+}
+.jumbocolor{
+	color:#51291e;
+}
+.bookcolor{
+	color:#51291e;
+}
+.shopcolor{
+	color:#51291e;
+}
+.bookcolor{
+	background-color:#FFEEF2;
+}
+.shopcolor{
+	background-color:#FFEEF2;
+}

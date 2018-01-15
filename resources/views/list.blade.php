@@ -18,7 +18,7 @@
 					<h4 class="card-title">{{ $book->name }}</h4>
 					<p class="card-text">{{ $book->price }}円(税抜)</p>
 				</div>
-				<a href="{{ url('/zaiko', $book->ISBN) }}"></a>
+				<a href="{{ url('/stocks', $book->ISBN) }}"></a>
 			</div>
 			@endforeach
 		</div>

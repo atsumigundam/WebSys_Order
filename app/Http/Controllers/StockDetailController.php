@@ -6,15 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 
-class testcontroller extends Controller
-{
-    public function index()
-    {
-    	$name = DB::select('select name from test.shop where id = ?',[0003]);
-    	return view('test',['name'=>$name[0]->name]);
-    }
-    
-    public function zaiko($isbn)
+class StockDetailController extends Controller
+{   
+    public function index($isbn)
     {
         $shop1 = DB::table('shop')->where('id', [0001])->first();
         $shop2 = DB::table('shop')->where('id', [0002])->first();
@@ -24,12 +18,13 @@ class testcontroller extends Controller
         $book = DB::table('books')->where('ISBN', $isbn)->first();
         $stocks = DB::table('stock')->where('ISBN', $isbn)->get();
     	
-    	return view('zaiko',['book'=>$book->name,
+    	return view('stockdetail',['book'=>$book->name,
     						'author'=>$book->author,
     						'date'=>$book->date,
     						'price'=>$book->price,
     						'ISBN'=>$book->ISBN,
-    						'pic'=>$book->cover,
+                            'publisher'=>$book->publisher,
+    						'cover'=>$book->cover,
                             'zaiko1' => $stocks[0]->在庫数 - $stocks[0]->引当数 - $stocks[0]->陳列数,
                             'zaiko2' => $stocks[1]->在庫数 - $stocks[1]->引当数 - $stocks[1]->陳列数,
                             'zaiko3' => $stocks[2]->在庫数 - $stocks[2]->引当数 - $stocks[2]->陳列数,
