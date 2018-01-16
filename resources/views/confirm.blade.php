@@ -89,7 +89,7 @@
 						<label class="col-sm-10 col-form-label" name="last-name" id="last_name">{{ $last_name }}</label>
 					</div>
 					<div class="form-group row">
-						<label for="tel" class="col-2 col-sm-form-label">電話番号</label>
+						<label for="tel" class="col-sm-2 col-sm-form-label">電話番号</label>
 						<label class="col-sm-10 col-form-label" name="tel" id="tel">{{ $tel }}</label>
 					</div>
 					<div class="form-group row">

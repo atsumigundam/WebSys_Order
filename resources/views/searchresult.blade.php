@@ -25,7 +25,7 @@
 			@endforeach
 		</div>
 		@endforeach
-		<div class="pagination">
+		<div class="pagination row">
 			{{ $books->appends(['searchword' => $searchword])->links() }}
 		</div>
 		<div>

@@ -22,99 +22,97 @@
 		</div>
 	</div>
 	<div class="container bookcolor">
-   <dic class ="bookdetail">
-		<div class="row">
-			<table class="table table-striped">
-				<thead>
-					<tr>
-						<th>参考画像</th>
-						<th>タイトル</th>
-						<th>作者</th>
-						<th>出版社</th>
-						<th>発行年月</th>
-						<th>定価</th>
-						<th>ISBN</th>
-					</tr>
-				</thead>
+		<dic class ="bookdetail">
+			<div class="table-responsive">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>参考画像</th>
+							<th>タイトル</th>
+							<th>作者</th>
+							<th>出版社</th>
+							<th>発行年月</th>
+							<th>定価</th>
+							<th>ISBN</th>
+						</tr>
+					</thead>
 
-				<tbody>
-					<tr>
-						<td><img src="{{ $cover }}"></td>
-						<td>{{$book}}</td>
-						<td>{{$author}}</td>
-						<td>{{$publisher}}</td>
-						<td>{{$date}}</td>
-						<td>{{$price}}</td>
-						<td>{{$ISBN}}</td>
-					</tr>
-				</tbody>
+					<tbody>
+						<tr>
+							<td><img src="{{ $cover }}"></td>
+							<td>{{$book}}</td>
+							<td>{{$author}}</td>
+							<td>{{$publisher}}</td>
+							<td>{{$date}}</td>
+							<td>{{$price}}</td>
+							<td>{{$ISBN}}</td>
+						</tr>
+					</tbody>
 
-			</table>
+				</table>
+			</div>
 		</div>
 	</div>
-	</div>
 
-<div class="container shopcolor">
-	<div class = "test2">
-		<div class="row">
-			<table class="table table-striped">
-				<thead>
-					<tr>
-						<th>店舗</th>
-						<th>在庫状況</th>
-						<th>注文</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>{{$shop1->name}}</td>
-						<td>{{$zaiko1}}</td>
-						<td>
-							<form action="order/{{ $ISBN }}/{{ $shop1->id }}" method="get">
-								<button type = "submit" class="btn btn-secondary">
-									注文へ
-								</button>
-							</form>
-						</td>
-					</tr>
-					<tr>
-						<td>{{$shop2->name}}</td>
-						<td>{{$zaiko2}}</td>
-						<td>
-							<form action="order/{{ $ISBN }}/{{ $shop2->id }}" method="get" >
-								<button type ="submit" class="btn btn-secondary">
-									注文へ
-								</button>
-							</form>
-						</td>
-					</tr>
-					<tr>
-						<td>{{$shop3->name}}</td>
-						<td>{{$zaiko3}}</td>
-						<td>
-							<form action="order/{{ $ISBN }}/{{ $shop3->id }}" method="get" >
-								<button type ="submit" class="btn btn-secondary">
-									注文へ
-								</button>
-							</form>
-						</td>
-					</tr>
-					<tr>
-						<td>{{$shop4->name}}</td>
-						<td>{{$zaiko4}}</td>
-						<td>
-							<form action="order/{{ $ISBN }}/{{ $shop4->id }}" method="get" >
-								<button type= "submit" class="btn btn-secondary">
-									注文へ
-								</button>
-							</form>
-						</td>
-					</tr>
-				</tbody>
-			</table>													
-		</div>
+	<div class="container shopcolor">
+			<div class="table-responsive">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>店舗</th>
+							<th>在庫状況</th>
+							<th>注文</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>{{$shop1->name}}</td>
+							<td>{{$zaiko1}}</td>
+							<td>
+								<form action="order/{{ $ISBN }}/{{ $shop1->id }}" method="get">
+									<button type = "submit" class="btn btn-secondary">
+										注文へ
+									</button>
+								</form>
+							</td>
+						</tr>
+						<tr>
+							<td>{{$shop2->name}}</td>
+							<td>{{$zaiko2}}</td>
+							<td>
+								<form action="order/{{ $ISBN }}/{{ $shop2->id }}" method="get" >
+									<button type ="submit" class="btn btn-secondary">
+										注文へ
+									</button>
+								</form>
+							</td>
+						</tr>
+						<tr>
+							<td>{{$shop3->name}}</td>
+							<td>{{$zaiko3}}</td>
+							<td>
+								<form action="order/{{ $ISBN }}/{{ $shop3->id }}" method="get" >
+									<button type ="submit" class="btn btn-secondary">
+										注文へ
+									</button>
+								</form>
+							</td>
+						</tr>
+						<tr>
+							<td>{{$shop4->name}}</td>
+							<td>{{$zaiko4}}</td>
+							<td>
+								<form action="order/{{ $ISBN }}/{{ $shop4->id }}" method="get" >
+									<button type= "submit" class="btn btn-secondary">
+										注文へ
+									</button>
+								</form>
+							</td>
+						</tr>
+					</tbody>
+				</table>													
+			</div>
 	</div>
-</div>
 
 </body>
 </html>

@@ -27,7 +27,9 @@
 					<label>{{ $shop_name }}</label><br>
 					<a href="https://maps.google.com/maps?q=<?php echo $shop_address; ?>" target="_blank">{{ $shop_address }} Google Mapで見る</a>
 				</p>
-				<button class="btn btn-outline-primary" type="button">検索トップへもどる</button>
+				<form action="/serach">
+					<button class="btn btn-outline-primary" type="button">検索トップへもどる</button>
+				</form>
 			</div>
 		</div>
 	</div>
