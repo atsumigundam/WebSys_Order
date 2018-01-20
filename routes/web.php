@@ -30,3 +30,11 @@ Route::post('/order/{isbn}/cancel', 'DbController@to_zaiko');
 Route::get('/search', 'SearchController@index');
 
 Route::get('/searchresult', 'SearchController@search');
+
+Route::get('/analysis', function() {
+	return view('analysistop');
+});
+
+Route::get('/searchlog', function() {
+	return view('searchlog');
+});

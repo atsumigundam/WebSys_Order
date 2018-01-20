@@ -1,0 +1,74 @@
+@import url(https://fonts.googleapis.com/earlyaccess/notosansjp.css);
+
+html {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+	color: #FFF;
+	text-align: center;
+	overflow-x: hidden;
+}
+
+.content {
+	background-image: url("./img/about/top.jpeg");
+	background-size: cover;
+	height: 100%;
+	position: relative;
+	font-family: 'Noto Sans JP';
+}
+
+.content.n2 {
+	background-image: url("./img/about/buyers.jpeg");
+}
+
+.content.n3 {
+	background-image: url("./img/about/analysis.jpeg");
+}
+
+.content.n4 {
+	background-image: url("./img/about/server.jpeg");
+}
+
+.content::before {
+	content: ' ';
+	background-color: rgba(0,0,0,.5);
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.box {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	color: #FFF;
+	height: 200px;
+}
+
+.container {
+	background-color: #AAA;
+}
+
+.row.img {
+	margin: 50px 0 auto;
+}
+
+.sm {
+	width: 50%;
+}
+
+img {
+	width: 100%;
+	height: auto;
+}
+
+h3 {
+	margin: 20px;
+}
