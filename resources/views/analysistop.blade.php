@@ -29,14 +29,6 @@
 		<div class="box">
 			<h1 class="wow fadeIn" data-wow-delay="0.5s">洗練されたグラフシステム</h1>
 			<h3 class="wow fadeIn" data-wow-delay="0.8s">高度なグラフ機能により、売上推移を瞬時に可視化します。</h3>
-			<div class="row img">
-				<div>
-					<img src="{{ asset('css/img/about/g1.png') }}" class="wow fadeIn d-sm-none sm" data-wow-delay="1.0s">
-				</div>
-				<img src="{{ asset('css/img/about/g1.png') }}" class="wow fadeIn col-sm-4 d-none d-sm-block" data-wow-delay="1.0s">
-				<img src="{{ asset('css/img/about/g2.png') }}" class="wow fadeIn col-sm-4 d-none d-sm-block" data-wow-delay="1.2s">
-				<img src="{{ asset('css/img/about/g3.png') }}" class="wow fadeIn col-sm-4 d-none d-sm-block" data-wow-delay="1.4s">
-			</div>
 		</div>
 	</div>
 	<div class="content n4">

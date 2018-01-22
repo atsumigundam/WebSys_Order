@@ -1,0 +1,10 @@
+.box {
+	/*box-shadow*/
+	box-shadow:0 0 5px #fff, 0 0 5px #ccc, 0 0 1px #aaa;
+	-webkit-box-shadow:0 0 5px #fff, 0 0 5px #ccc, 0 0 1px #aaa;
+	-moz-box-shadow:0 0 5px #fff, 0 0 5px #ccc, 0 0 1px #aaa;
+	/*ボックスのデザイン*/
+	padding:10px;
+	border:1px solid #ccc;
+	text-align:center;
+}
