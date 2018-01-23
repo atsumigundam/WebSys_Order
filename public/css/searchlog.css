@@ -8,3 +8,7 @@
 	border:1px solid #ccc;
 	text-align:center;
 }
+
+.canvasjs-chart-credit {
+   display: none;
+}
