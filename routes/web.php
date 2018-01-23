@@ -42,3 +42,7 @@ Route::get('/searchlog', function() {
 Route::get('/accesslog', function() {
 	return view('accesslog');
 });
+
+Route::get('/purchaselog', function() {
+	return view('purchaselog');
+});
