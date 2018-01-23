@@ -13,7 +13,7 @@
 
 @section('content')
 	<div class="container">
-		<h1 style="text-align: right;">ここにもないよ</h1>
+		<h1 style="text-align: right;">ここもないよ</h1>
 	</div>
 @endsection
 
