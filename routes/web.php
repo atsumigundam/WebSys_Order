@@ -38,3 +38,7 @@ Route::get('/analysis', function() {
 Route::get('/searchlog', function() {
 	return view('searchlog');
 });
+
+Route::get('/accesslog', function() {
+	return view('accesslog');
+});

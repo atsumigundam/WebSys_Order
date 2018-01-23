@@ -23,7 +23,7 @@
 						<a class="nav-link" href="{{ url('/searchlog') }}">検索ログ分析</span></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">アクセスログ分析</a>
+						<a class="nav-link" href="{{ url('/accesslog') }}">アクセスログ分析</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#">購入ログ分析</a>
