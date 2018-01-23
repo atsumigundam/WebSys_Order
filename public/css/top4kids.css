@@ -14,13 +14,13 @@
 html,
 body {
   height: 100%;
-  background-image: url("./img/search_top.jpg");
+  background-image: url("./img/children_narabi.jpg");
   background-size: cover;
 }
 body {
   color: #fff;
   text-align: center;
-  text-shadow: 0 1px 3px rgba(0,0,0,.5);
+  /*text-shadow: 0 1px 3px rgba(0,0,0,.5);*/
 }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
@@ -73,8 +73,11 @@ body {
   }
 
 }
+.chara{ color: #00dfff;
 
-.wf-sawarabimincho { font-family: "Sawarabi Mincho"; }
+}
+
+.wf-sawarabimincho { font-family: "Nico Moji"; }
 
 .title {
 	font-size: 3rem;
@@ -82,19 +85,4 @@ body {
 
 .content {
 	font-size: 2rem;
-}
-
-.fa-white {
-  color: white;
-}
-
-.btn-orange {
-  background-color: #ff801f;
-}
-
-.fa-spin-hover:hover {
-  -webkit-animation: fa-spin 2s infinite linear;
-  -moz-animation: fa-spin 2s infinite linear;
-  -o-animation: fa-spin 2s infinite linear;
-  animation: fa-spin 2s infinite linear;
 }

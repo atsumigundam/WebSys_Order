@@ -46,3 +46,7 @@ Route::get('/accesslog', function() {
 Route::get('/purchaselog', function() {
 	return view('purchaselog');
 });
+
+Route::get('/search4kids', function() {
+	return view('search4kids');
+});
