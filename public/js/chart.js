@@ -17,7 +17,6 @@ function create_chart_word(month, chart_word_id, data) {
 	$(`#${chart_word_id}`).height(chart_word.height);
 	$parent = $(`#${chart_word_id}`).parent();
 	$(`#${chart_word_id}`).width($parent.innerWidth());
-	console.log($parent.innerWidth());
 }
 
 // 検索件数チャート
@@ -73,6 +72,8 @@ function create_chart_count(chart_count_id, data) {
 		chart_count.render();
 	}
 }
+
+var data_word_current = word_current;
 
 // 1月の円グラフの表示データ
 var data_word_Jan = [
@@ -164,7 +165,7 @@ var data_count_Dec = [
 	{ x: new Date(2017, 11, 31), y: 1763 },
 ];
 
-create_chart_word(1, "chart_word_current", data_word_Jan);
+create_chart_word(month_current, "chart_word_current", data_word_current);
 
 create_chart_word(12, "chart_word_preview", data_word_Dec);
 
