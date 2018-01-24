@@ -50,3 +50,11 @@ Route::get('/purchaselog', function() {
 Route::get('/search4kids', function() {
 	return view('search4kids');
 });
+
+Route::get('/staffdevice','StaffDeviceController@index');
+
+Route::get('/staffdevicegetIDTcard','StaffDeviceController@IDcard');
+
+Route::get('/IDregister','StaffDeviceController@IDregister');
+
+Route::get('/IDconfirm','StaffDeviceController@IDconfirm');
