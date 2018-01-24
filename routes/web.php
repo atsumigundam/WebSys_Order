@@ -57,4 +57,6 @@ Route::get('/staffdevicegetIDTcard','StaffDeviceController@IDcard');
 
 Route::get('/IDregister','StaffDeviceController@IDregister');
 
-Route::get('/IDconfirm','StaffDeviceController@IDconfirm');
+Route::get('/staffdeviceconfirm','StaffDeviceController@IDconfirm');
+
+Route::get('/search/{age}/{sex}','StaffDeviceController@search');

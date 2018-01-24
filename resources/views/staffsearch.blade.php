@@ -20,8 +20,32 @@
 			<div class="form-control col-sm-8 offset-sm-2">
 				<div class="row">
 					<div class="col-sm-8 offset-sm-3">
-						　　<label>年代　20代　　性別　男性</label>　
+						　　<label>年代　{{$age}}　　  性別　{{$sex}}</label>　
 					</div>
+				</div>
+				<div>最近検索されているワード
+					
+					<table>
+						<thead>
+							<tr>
+								<th scope="col">順位</th>
+								<th scope="col">ワード</th>
+								<th scope="col">回数</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php $count = 1 ?>
+							@foreach ($result as $chunk)
+							<tr>
+								<th scope="row">{{$count++}}</th>
+								<td>{{$chunk->searchwords}}</td>
+								<td>{{$chunk->count}}</td>
+
+							</tr>
+							@endforeach
+						</tbody>
+					</table>
+					
 				</div>
 				<div class="row analysis">
 					<div class="col-sm-12">

@@ -18,15 +18,14 @@
 	<div class="container">
 		<div class="row">
 			<div class="form-control col-sm-8 offset-sm-2">
-				<div class="row">
-					<div class="col-sm-8 offset-sm-4">
+				
+					<div style="text-align: center;" >
 						<label>{{$age}}　{{$sex}}</label>
-					</div>
+			
 				</div>
-				<div class="row">
-					<div class="col-sm-8 offset-sm-4">
+				
+					<div style="text-align: center;">
 						<label>登録完了しました</label>
-					</div>
 
 				</div>
 			</div>
@@ -36,7 +35,9 @@
 				<div class="col-sm-8 offset-sm-2">
 					<div class="row">
 						<div class="col-sm-7 offset-sm-4">
-							　　<button type="button" onclick="location.href='staffdevicesearch.html'" class="btn btn-primary">検索ページへ</button>
+							<form action="search/{{$age}}/{{$sex}}" method="get">
+							　　<button type="submit"  class="btn btn-primary">検索ページへ</button>
+						</form>
 						</div>
 					</div>
 				</div>
