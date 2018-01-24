@@ -15,6 +15,9 @@ function create_chart_word(month, chart_word_id, data) {
 	chart_word.render();
 
 	$(`#${chart_word_id}`).height(chart_word.height);
+	$parent = $(`#${chart_word_id}`).parent();
+	$(`#${chart_word_id}`).width($parent.innerWidth());
+	console.log($parent.innerWidth());
 }
 
 // 検索件数チャート
