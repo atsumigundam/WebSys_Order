@@ -24,7 +24,7 @@ class StaffDeviceController extends Controller
 		return view('IDconfirm',compact('age','sex'));
 	}
 
-	public function search($sex,$age){
+	public function searchlog($sex,$age){
 		$bom=date('Y-m-01 00:00:00');
 		$eom=date('Y-m-t 23:59:59');
 		$result = DB::table('searchlog')
@@ -40,5 +40,26 @@ class StaffDeviceController extends Controller
 		}*/
 		return view('staffsearch',compact('age','sex','result'));
 	}
+	public function search(Request $request){
+		$this->validate($request, ['searchword' => 'required']);
+    	$searchword = $request->input('searchword');
+    	
+		$words = str_replace("　", " ", $searchword);
+		
+		DB::table('searchlog')->insert(['searchwords' => $words]);
 
+		$word_array = preg_split("/[ ]+/",$words);
+		$query = Book::query();
+		foreach ($word_array as $word) {
+			$query->where('name', 'like', '%'.$word.'%');
+		}
+		if($query->count() == 0) {
+			foreach ($word_array as $word) {
+				$query->orwhere('name', 'like', '%'.$word.'%');
+			}
+		}
+		$books = $query->paginate(16);
+    	return view('staffsearchresult', compact('books', 'searchword'));
+	}
+	
 }

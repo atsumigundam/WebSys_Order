@@ -344,6 +344,8 @@ class ComposerStaticInit0789a3d951ae4621092fd17cdb36a700
         'App\\Http\\Controllers\\FormController' => __DIR__ . '/../..' . '/app/Http/Controllers/FormController.php',
         'App\\Http\\Controllers\\GetTestController' => __DIR__ . '/../..' . '/app/Http/Controllers/GetTestController.php',
         'App\\Http\\Controllers\\SearchController' => __DIR__ . '/../..' . '/app/Http/Controllers/SearchController.php',
+        'App\\Http\\Controllers\\SearchLogController' => __DIR__ . '/../..' . '/app/Http/Controllers/SearchLogController.php',
+        'App\\Http\\Controllers\\StaffDeviceController' => __DIR__ . '/../..' . '/app/Http/Controllers/StaffDeviceController.php',
         'App\\Http\\Controllers\\StockDetailController' => __DIR__ . '/../..' . '/app/Http/Controllers/StockDetailController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',

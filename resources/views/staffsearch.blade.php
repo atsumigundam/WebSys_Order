@@ -23,14 +23,17 @@
 						　　<label>年代　{{$age}}　　  性別　{{$sex}}</label>　
 					</div>
 				</div>
-				<div>最近検索されているワード
-					
-					<table>
+				<div style="text-align: center;">最近検索されているワード
+				</div>
+                <div class="row">
+                	<div class="col-sm-12">
+					<table class="table">
 						<thead>
 							<tr>
 								<th scope="col">順位</th>
 								<th scope="col">ワード</th>
 								<th scope="col">回数</th>
+								<th scope="col">検索</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -40,42 +43,12 @@
 								<th scope="row">{{$count++}}</th>
 								<td>{{$chunk->searchwords}}</td>
 								<td>{{$chunk->count}}</td>
-
 							</tr>
 							@endforeach
 						</tbody>
 					</table>
-					
 				</div>
-				<div class="row analysis">
-					<div class="col-sm-12">
-						<table class="table">
-							<thead>
-								<tr>
-									<th scope="col">順位</th>
-									<th scope="col">カテゴリ</th>
-									<th scope="col">価格帯</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<th scope="row">1</th>
-									<td>ビジネス,経済</td>
-									<td>~1000円</td>
-								</tr>
-								<tr>
-									<th scope="row">2</th>
-									<td>科学、テクノロジー</td>
-									<td>~1000円</td>
-								</tr>
-								<tr>
-									<th scope="row">3</th>
-									<td>人文思想</td>
-									<td>~1000円</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
+					
 				</div>
 				<div class="row analysisresult">
 					<div class="col-sm-9 offset-sm-2">
