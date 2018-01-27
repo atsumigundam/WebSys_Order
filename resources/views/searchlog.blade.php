@@ -61,6 +61,7 @@
 	<script type="text/javascript">
 		var word_current = @json($word_current);
 		var month_current = @json($month_current);
+		var count_current = @json($count_current);
 	</script>
 	<script type="text/javascript" src="{{ asset('js/chart.js') }}"></script>
 @endsection
