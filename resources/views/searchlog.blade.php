@@ -35,6 +35,13 @@
 					</div>
 				</div>
 			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="card box mt-4">
+						<div id="chart_word_multi"></div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class="tab-pane fade" id="past" role="tabpanel" aria-labelledby="past-tab">
@@ -62,6 +69,7 @@
 		var word_current = @json($word_current);
 		var month_current = @json($month_current);
 		var count_current = @json($count_current);
+		var word_multi = @json($word_multi);
 	</script>
 	<script type="text/javascript" src="{{ asset('js/chart.js') }}"></script>
 @endsection

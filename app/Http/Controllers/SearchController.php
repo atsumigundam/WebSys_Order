@@ -19,8 +19,12 @@ class SearchController extends Controller
     	//全角空白があったら半角空白にそろえる
 		$words = str_replace("　", " ", $searchword);
 
-		//検索ワードをログテーブルに追加
-		DB::table('searchlog')->insert(['searchwords' => $words]);
+		// ペジネーションによるinsertの重複を防止
+		if ($request->input('page') == 0) {
+			//検索ワードをログテーブルに追加
+			DB::table('searchlog')->insert(['searchwords' => $words]);	
+		}
+		
 
 		//空白文字で検索ワードを分割	
 		$word_array = preg_split("/[ ]+/",$words);

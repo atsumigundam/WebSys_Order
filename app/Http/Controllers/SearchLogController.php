@@ -16,18 +16,26 @@ class SearchLogController extends Controller
     	$eom = date('Y-m-t 23:59:59');
 
     	//今月の検索ワードの集計を取得
-    	$result = DB::table('searchlog')
+    	$word_result = DB::table('searchlog')
     					->select(DB::raw('searchwords, count(searchwords) as count'))
     					->whereBetween('created_at', [$bom, $eom])
     					->groupBy('searchwords')
     					->orderBy(DB::raw('count(searchwords)'), 'desc')
     					->get();
 
- 	   	$result_array = array();
-    	foreach ($result as $chunk) {
-    		array_push($result_array, array('label'=>$chunk->searchwords, 'y'=>$chunk->count));
+ 	   	$word_result_array = array();
+    	foreach ($word_result as $chunk) {
+    		array_push($word_result_array, array('label'=>$chunk->searchwords, 'y'=>$chunk->count));
     	}
 
+        // 半角スペースを含む検索ワードの集計を取得
+        $word_multi = array_filter($word_result_array, function($v) {
+            return strpos($v['label'], ' ') !== false;
+        });
+        // indexを振り直す
+        $word_multi = array_values($word_multi);
+
+        // 今月の日別検索数を取得
     	$count_result = DB::table('searchlog')
     					->select(DB::raw('date_format(created_at, "%Y-%m-%d") as date, date_format(created_at, "%d") as day, count(searchwords) as count'))
     					->groupBy(DB::raw('date_format(created_at, "%Y%m%d")'))
@@ -46,6 +54,6 @@ class SearchLogController extends Controller
 			}
 		}
 
-    	return view('searchlog', [ 'word_current' => $result_array, 'month_current' =>  $month_current, 'count_current' => $count_result_array ]);
+    	return view('searchlog', [ 'word_current' => $word_result_array, 'month_current' =>  $month_current, 'count_current' => $count_result_array, 'word_multi' => $word_multi ]);
     }
 }

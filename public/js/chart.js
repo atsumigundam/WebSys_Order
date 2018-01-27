@@ -1,9 +1,9 @@
 // 検索ワード上位
-function create_chart_word(month, chart_word_id, data) {
+function create_chart_word(month, chart_word_id, title, data) {
 	var chart_word = new CanvasJS.Chart(chart_word_id, {
 		animationEnabled: true,
 		animationDuration: 800,
-		title: { text: '検索ワード上位', fontColor: '#222', fontSize: 16, margin: 15 },
+		title: { text: title, fontColor: '#222', fontSize: 16, margin: 15 },
 		subtitles: [{ text: `${month}月`, fontWeight: "normal" }],
 		data: [{
 			type: 'pie',
@@ -15,8 +15,6 @@ function create_chart_word(month, chart_word_id, data) {
 	chart_word.render();
 
 	$(`#${chart_word_id}`).height(chart_word.height);
-	$parent = $(`#${chart_word_id}`).parent();
-	$(`#${chart_word_id}`).width($parent.innerWidth());
 }
 
 // 検索件数チャート
@@ -126,10 +124,15 @@ var data_count_current = count_current.map(function(element) {
 	return { x: new Date(element.x), y: element.y};
 });
 
-create_chart_word(month_current, "chart_word_current", data_word_current);
+var data_word_multi = word_multi;
+console.log(data_word_multi);
+
+create_chart_word(month_current, "chart_word_current", "検索ワード上位", data_word_current);
 
 create_chart_word(12, "chart_word_preview", data_word_Dec);
 
 create_chart_count("chart_count_current", data_count_current);
 
 create_chart_count("chart_count_preview", data_count_Dec);
+
+create_chart_word(month_current, "chart_word_multi", "複数検索ワード上位", data_word_multi);
