@@ -17,7 +17,7 @@ class CreateSearchlogTable extends Migration
             $table->increments('id');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->string('searchwords');
-            
+            $table->integer('hits');
         });
     }
 

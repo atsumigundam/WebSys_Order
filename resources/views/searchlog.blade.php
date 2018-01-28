@@ -41,6 +41,11 @@
 						<div id="chart_word_multi"></div>
 					</div>
 				</div>
+				<div class="col-md-6">
+					<div class="card box mt-4">
+						<div id="chart_no_hit_word"></div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -70,6 +75,7 @@
 		var month_current = @json($month_current);
 		var count_current = @json($count_current);
 		var word_multi = @json($word_multi);
+		var no_hit_word = @json($no_hit_word);
 	</script>
 	<script type="text/javascript" src="{{ asset('js/chart.js') }}"></script>
 @endsection

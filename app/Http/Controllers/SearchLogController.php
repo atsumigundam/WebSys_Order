@@ -54,6 +54,21 @@ class SearchLogController extends Controller
 			}
 		}
 
-    	return view('searchlog', [ 'word_current' => $word_result_array, 'month_current' =>  $month_current, 'count_current' => $count_result_array, 'word_multi' => $word_multi ]);
+        //今月の検索結果が0の検索ワードの集計を取得
+        $no_hit_word_result = DB::table('searchlog')
+                        ->select(DB::raw('searchwords, count(searchwords) as count'))
+                        ->where('hits', 0)
+                        ->whereBetween('created_at', [$bom, $eom])
+                        ->groupBy('searchwords')
+                        ->orderBy(DB::raw('count(searchwords)'), 'desc')
+                        ->get();
+
+        $no_hit_word_array = array();
+        foreach ($no_hit_word_result as $chunk) {
+            array_push($no_hit_word_array, array('label'=>$chunk->searchwords, 'y'=>$chunk->count));
+        }
+
+
+    	return view('searchlog', [ 'word_current' => $word_result_array, 'month_current' =>  $month_current, 'count_current' => $count_result_array, 'word_multi' => $word_multi, 'no_hit_word' => $no_hit_word_array ]);
     }
 }

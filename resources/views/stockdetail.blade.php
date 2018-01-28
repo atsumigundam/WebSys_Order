@@ -15,10 +15,6 @@
 		<div class="jumbocolor">
 			<h1 class="display-3">在庫一覧</h1>
 			<p class="lead">選択された本の詳細情報をお届けします</p>
-			<p class="lead">
-				<a class="btn btn-outline-success" href="#" role="button">詳しくはこちら
-				</a>
-			</p>
 		</div>
 	</div>
 	<div class="container bookcolor">

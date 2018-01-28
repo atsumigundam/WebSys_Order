@@ -125,14 +125,17 @@ var data_count_current = count_current.map(function(element) {
 });
 
 var data_word_multi = word_multi;
-console.log(data_word_multi);
+
+var data_no_hit_word = no_hit_word;
 
 create_chart_word(month_current, "chart_word_current", "検索ワード上位", data_word_current);
 
-create_chart_word(12, "chart_word_preview", data_word_Dec);
+create_chart_word(12, "chart_word_preview", "検索ワード上位", data_word_Dec);
 
 create_chart_count("chart_count_current", data_count_current);
 
 create_chart_count("chart_count_preview", data_count_Dec);
 
 create_chart_word(month_current, "chart_word_multi", "複数検索ワード上位", data_word_multi);
+
+create_chart_word(month_current, "chart_no_hit_word", "検索結果が0のワード上位", data_no_hit_word);
