@@ -17,10 +17,47 @@ Route::get('/', function () {
 
 Route::get('/order/{isbn}/{shop_id}', 'DbController@input');
 
+Route::get('/stocks/order/{isbn}/{shop_id}', 'StockDetailController@to_order');
+
 Route::post('/order/{isbn}/{shop_id}/confirm', 'FormController@formResult');
 
 Route::post('/order/{isbn}/{shop_id}/ordered', 'FormController@orderedResult');
 
-Route::get('order/', function () {
-	return view('input', ['shop_name' => "てｓｔ", 'shop_address' => "てｓと", 'shop_phone' => "てｓつお"]);
+Route::get('/stocks/{isbn}','StockDetailController@index');
+
+Route::post('/order/{isbn}/cancel', 'DbController@to_zaiko');
+
+Route::get('/search', 'SearchController@index');
+
+Route::get('/searchresult', 'SearchController@search');
+
+Route::get('/analysis', function() {
+	return view('analysistop');
 });
+
+Route::get('/searchlog', 'SearchLogController@index');
+
+Route::get('/accesslog', function() {
+	return view('accesslog');
+});
+
+Route::get('/purchaselog', function() {
+	return view('purchaselog');
+});
+
+Route::get('/search4kids', function() {
+	return view('search4kids');
+});
+
+Route::get('/staffdevice','StaffDeviceController@index');
+
+Route::get('/staffdevicegetIDTcard','StaffDeviceController@IDcard');
+
+Route::get('/IDregister','StaffDeviceController@IDregister');
+
+Route::get('/staffdeviceconfirm','StaffDeviceController@IDconfirm');
+
+Route::get('/search/{age}/{sex}','StaffDeviceController@searchlog');
+
+Route::get('/search/{age}/{sex}/{searchwords}','StaffDeviceController@staffsearchbooks');
+

@@ -46,11 +46,11 @@ return [
             'database' => env('DB_DATABASE', 'test'),
             'username' => env('DB_USERNAME', 'root'),
             'password' => env('DB_PASSWORD', 'root'),
-            'unix_socket' => env('DB_SOCKET', 'C:/xampp/mysql/mysql.sock'),
+            'unix_socket' => env('DB_SOCKET', '/var/lib/mysql/mysql.sock'),
             'charset' => 'utf8',
             'collation' => 'utf8_general_ci',
             'prefix' => '',
-            'strict' => true,
+            'strict' => false,
             'engine' => null,
         ],
 

@@ -12,6 +12,7 @@ class OrderReceived extends Mailable
     use Queueable, SerializesModels;
 
     public $order_id;
+    public $full_name;
     public $book;
     public $shop;
 
@@ -20,9 +21,10 @@ class OrderReceived extends Mailable
      *
      * @return void
      */
-    public function __construct($order_id, $book, $shop)
+    public function __construct($order_id, $full_name, $book, $shop)
     {
         $this->order_id = $order_id;
+        $this->full_name = $full_name;
         $this->book = $book;
         $this->shop = $shop;
     }
@@ -34,6 +36,6 @@ class OrderReceived extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.orders.received');
+        return $this->view('emails.orders.received')->subject("注文受付完了");
     }
 }

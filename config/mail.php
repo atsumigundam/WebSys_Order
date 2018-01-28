@@ -59,7 +59,7 @@ return [
         'address' => env('MAIL_FROM_ADDRESS', 'gn009gundam@gmail.com'),
         'name' => env('MAIL_FROM_NAME', 'Y書店'),
     ],
-
+    
     /*
     |--------------------------------------------------------------------------
     | E-Mail Encryption Protocol

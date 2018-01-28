@@ -2,51 +2,14 @@
 	text-align: center;
 }
 
-.span_title {
-	color: #FFFFFF
-}
-
-.box_book {
-    width: 500px;
-    overflow: hidden;
-    border: 1px solid #dddddd;
-    padding: 15px;
-    margin: auto;
-}
-
-.box_book img{
-    padding-right: 15px;
-    float: left;
-}
-
-.box_shop {
-	width: 500px;
-    overflow: hidden;
-    border: 1px solid #dddddd;
-    padding: 15px;
-    margin: 10px auto 10px auto;
-}
-
-.body_white {
-	margin: auto;
-	padding: 10px;
-	width: 600px;
-	background-color: #FFFFFF;
-}
-
 .body_test {
     margin: auto;
     padding: 15px;
-    max-width: 1200px;
     background-color: #FFFFFF;
 }
 
-.body_center {
-	text-align: center;
-}
-
 body {
-	background: url("./img/background.jpeg");
+	background: url("./img/order_bg.jpeg");
     background-attachment: fixed;
     background-size: cover;
 }
@@ -63,10 +26,17 @@ body {
   top: 0;
 }
 
-h3 {
+h2 {
     margin-top: 20px;
     margin-bottom: 20px;
     padding: .25em 0 .5em .75em;
     border-left: 6px solid #ccc;
     border-bottom: 1px solid #ccc;
+}
+
+h3 {
+padding: 0.5em;/*文字周りの余白*/
+color: #494949;/*文字色*/
+background: #DDD;/*背景色*/
+border-left: solid 5px gray;/*左線（実線 太さ 色）*/
 }

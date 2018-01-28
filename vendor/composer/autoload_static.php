@@ -332,6 +332,7 @@ class ComposerStaticInit0789a3d951ae4621092fd17cdb36a700
     );
 
     public static $classMap = array (
+        'App\\Book' => __DIR__ . '/../..' . '/app/Book.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
@@ -341,14 +342,19 @@ class ComposerStaticInit0789a3d951ae4621092fd17cdb36a700
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\DbController' => __DIR__ . '/../..' . '/app/Http/Controllers/DbController.php',
         'App\\Http\\Controllers\\FormController' => __DIR__ . '/../..' . '/app/Http/Controllers/FormController.php',
+        'App\\Http\\Controllers\\GetTestController' => __DIR__ . '/../..' . '/app/Http/Controllers/GetTestController.php',
+        'App\\Http\\Controllers\\SearchController' => __DIR__ . '/../..' . '/app/Http/Controllers/SearchController.php',
+        'App\\Http\\Controllers\\SearchLogController' => __DIR__ . '/../..' . '/app/Http/Controllers/SearchLogController.php',
+        'App\\Http\\Controllers\\StaffDeviceController' => __DIR__ . '/../..' . '/app/Http/Controllers/StaffDeviceController.php',
+        'App\\Http\\Controllers\\StockDetailController' => __DIR__ . '/../..' . '/app/Http/Controllers/StockDetailController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
-        'App\\Http\\Requests\\FormRequest' => __DIR__ . '/../..' . '/app/Http/Requests/FormRequest.php',
         'App\\Http\\Requests\\OrderForm' => __DIR__ . '/../..' . '/app/Http/Requests/OrderForm.php',
+        'App\\Mail\\OrderReceived' => __DIR__ . '/../..' . '/app/Mail/OrderReceived.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
