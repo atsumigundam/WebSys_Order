@@ -48,3 +48,16 @@ Route::get('/purchaselog', function() {
 Route::get('/search4kids', function() {
 	return view('search4kids');
 });
+
+Route::get('/staffdevice','StaffDeviceController@index');
+
+Route::get('/staffdevicegetIDTcard','StaffDeviceController@IDcard');
+
+Route::get('/IDregister','StaffDeviceController@IDregister');
+
+Route::get('/staffdeviceconfirm','StaffDeviceController@IDconfirm');
+
+Route::get('/search/{age}/{sex}','StaffDeviceController@searchlog');
+
+Route::get('/search/{age}/{sex}/{searchwords}','StaffDeviceController@staffsearchbooks');
+

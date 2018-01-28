@@ -18,6 +18,8 @@ return array(
     'App\\Http\\Controllers\\FormController' => $baseDir . '/app/Http/Controllers/FormController.php',
     'App\\Http\\Controllers\\GetTestController' => $baseDir . '/app/Http/Controllers/GetTestController.php',
     'App\\Http\\Controllers\\SearchController' => $baseDir . '/app/Http/Controllers/SearchController.php',
+    'App\\Http\\Controllers\\SearchLogController' => $baseDir . '/app/Http/Controllers/SearchLogController.php',
+    'App\\Http\\Controllers\\StaffDeviceController' => $baseDir . '/app/Http/Controllers/StaffDeviceController.php',
     'App\\Http\\Controllers\\StockDetailController' => $baseDir . '/app/Http/Controllers/StockDetailController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\EncryptCookies' => $baseDir . '/app/Http/Middleware/EncryptCookies.php',
