@@ -20,62 +20,84 @@
 			<div class="form-control col-sm-8 offset-sm-2">
 				<div class="row">
 					<div class="col-sm-8 offset-sm-3">
-						　　<label>年代　{{$age}}　　  性別　{{$sex}}</label>　
+						　　<label>年代　{{$age}}代　　  性別　{{$sex}}</label>　
 					</div>
 				</div>
-				<div style="text-align: center;">最近検索されているワード
+				<div style="text-align: center;">最近検索されているワード 
 				</div>
-                <div class="row">
-                	<div class="col-sm-12">
-					<table class="table">
-						<thead>
-							<tr>
-								<th scope="col">順位</th>
-								<th scope="col">ワード</th>
-								<th scope="col">回数</th>
-								<th scope="col">検索</th>
-							</tr>
-						</thead>
-						<tbody>
-							<?php $count = 1 ?>
-							@foreach ($result as $chunk)
-							<tr>
-								<th scope="row">{{$count++}}</th>
-								<td>{{$chunk->searchwords}}</td>
-								<td>{{$chunk->count}}</td>
-							</tr>
-							@endforeach
-						</tbody>
-					</table>
+				<div class="row">
+					<div class="col-sm-12">
+						<form>
+							<table class="table">
+								<thead>
+									<tr>
+										<th scope="col">順位</th>
+										<th scope="col">ワード</th>
+										<th scope="col">回数</th>
+										<th scope="col">検索</th>
+									</tr>
+
+								</thead>
+								<tbody>
+									<?php $count = 1 ?>
+									@foreach ($result as $chunk)
+									<tr>
+										<th scope="row">{{$count++}}</th>
+										<td>{{$chunk->searchwords}}</td>
+										<td>{{$chunk->count}}</td>
+										<td>
+											<button formaction="{{$sex}}/{{$chunk->searchwords}}" type="submit" class="btn btn-primary">検索</button>
+
+										</td>
+									</tr>
+									@endforeach
+								</tbody>
+							</table>
+						</form>
+					</div>
 				</div>
+				@foreach ($a as $chunk)
+				{{$chunk->name}}
+				<img src = "{{$chunk->cover}}">
+				@endforeach
+				<div style="text-align: center;">年代　{{$age}}代　　  性別　{{$sex}}が購入してる本
+				</div>
+				<div class="row">
+					<div class="col-sm-12">
+						<form>
+							<table class="table">
+								<thead>
+									<tr>
+										<th scope="col">順位</th>
+										<th scope="col">ワード</th>
+										<th scope="col">回数</th>
+										<th scope="col">検索</th>
+									</tr>
+
+								</thead>
+								<tbody>
+									<?php $count = 1 ?>
+									@foreach ($result as $chunk)
+									<tr>
+										<th scope="row">{{$count++}}</th>
+										<td>{{$chunk->searchwords}}</td>
+										<td>{{$chunk->count}}</td>
+										<td>
+											<button formaction="{{$sex}}/{{$chunk->searchwords}}" type="submit" class="btn btn-primary">検索</button>
+										</td>
+									</tr>
+									@endforeach
+								</tbody>
+							</table>
+						</form>
+					</div>
 					
 				</div>
-				<div class="row analysisresult">
-					<div class="col-sm-9 offset-sm-2">
-						<label>年代　20代　性別　男性　におすすめの本</label>
-					</div>
-				</div>
-				<div class="row recommend">
-					<div class="card col-sm-4">
-						<img class="card-img-top contain" src="./img/bleach7.jpg">
-						<h4 class="card-title">BLEACH7巻</h4>
-						<p class="card-text">563円(税抜)</p>
-					</div>
-					<div class="card col-sm-4">
-						<img class="card-img-top contain" src="./img/bleach6.jpg">
-						<h4 class="card-title">BLEACH6巻</h4>
-						<p class="card-text">563円(税抜)</p>
-					</div>
-					<div class="card col-sm-4">
-						<img class="card-img-top contain" src="./img/bleach8.jpg">
-						<h4 class="card-title">BLEACH8巻</h4>
-						<p class="card-text">563円(税抜)</p>
-					</div>
-				</div>
+
 				<div class="row search">
 					<div class="col-sm-6 offset-sm-3">
 						<input type="text" name="searchword" class="form-control">
-						<button class="btn btn-secondary col-sm-2 offset-sm-5" onclick="location.href='staffdevicesearchresult.html'" type="submit">検索</button>
+						<button class="btn btn-secondary col-sm-2 offset-sm-5" type="submit">検索</button>
 					</div>
 				</div>
 			</div>

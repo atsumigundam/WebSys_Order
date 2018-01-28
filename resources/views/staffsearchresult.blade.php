@@ -13,42 +13,34 @@
 		<div class="jumbocolor">
 			<h1 class="display-3">店舗内本検索サービス</h1>
 			<p class="lead">このページは本を検索するページです</p>
-			<p
-		</p>
+		</div>
 	</div>
-</div>
-<div class="container">
-	<div class="row">
-		<div class="form-control col-sm-8 offset-sm-2">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-7 offset-sm-3">
+				<label>「{{$searchwords}}」の検索結果</label>
+			</div>
+			@foreach ($books->chunk(4) as $chunk)
 			<div class="row">
-				<div class="col-sm-7 offset-sm-3">
-					<label>「BLEACH」の検索結果</label>
-				</div>
-					<div class="col-sm-7 offset-sm-2 form-group">
-						<label for="exampleSelect1exampleFormControlSelect1">並び替え</label>
-						<select class="form-control" id="exampleFormControlSelect1">
-							<option>人気順</option>
-							<option>発売日順</option>
-						</select>
+				@foreach ($chunk as $book)
+				<div class="card col-md-3 shadow">
+					<img class="card-img-top contain" src="{{ asset($book->cover) }}">
+					<div class="card-block">
+						<h4 class="card-title">{{ $book->name }}</h4>
+						<p class="card-text">{{ $book->price }}円(税抜)</p>
 					</div>
-				
-				<div class=" card col-sm-4 searchresult">
-					<img class="card-img-top contain" src="./img/bleach7.jpg">
-					<h4 class="card-title">BLEACH7巻</h4>
-					<p class="card-text">563円(税抜)</p>
+					<a href="{{ url('/stocks', $book->ISBN) }}"></a>
 				</div>
-				<div class=" card col-sm-4 searchresult">
-					<img class="card-img-top contain" src="./img/bleach6.jpg">
-					<h4 class="card-title">BLEACH6巻</h4>
-					<p class="card-text">563円(税抜)</p>
-				</div>
-				<div class=" card col-sm-4 searchresult">
-					<img class="card-img-top contain" src="./img/bleach8.jpg">
-					<h4 class="card-title">BLEACH8巻</h4>
-					<p class="card-text">563円(税抜)</p>
-				</div>
+				@endforeach
+			</div>
+			@endforeach
+			<div class="pagination row">
+				{{ $books->appends(['searchwords' => $searchwords])->links() }}
+			</div>
+			<div>
 			</div>
 		</div>
+		
 	</div>
 </div>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

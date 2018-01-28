@@ -20,7 +20,7 @@
 			<div class="form-control col-sm-8 offset-sm-2">
 				
 					<div style="text-align: center;" >
-						<label>{{$age}}　{{$sex}}</label>
+						<label>{{$age}}代　{{$sex}}</label>
 			
 				</div>
 				

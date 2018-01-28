@@ -32,10 +32,10 @@
 						<div class="form-group">
 							<label for="exampleSelect1exampleFormControlSelect1">年齢</label>
 							<select class="form-control" name="age" id="exampleFormControlSelect1">
-								<option value="１０代">10代</option>
-								<option value="２０代">20代</option>
-								<option value="３０代">30代</option>
-								<option value="４０代">40代</option>
+								<option value="10">10代</option>
+								<option value="20">20代</option>
+								<option value="30">30代</option>
+								<option value="40">40代</option>
 							</select>
 						</div>
 						<div class="row">

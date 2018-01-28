@@ -24,7 +24,7 @@ class StaffDeviceController extends Controller
 		return view('IDconfirm',compact('age','sex'));
 	}
 
-	public function searchlog($sex,$age){
+	public function searchlog($age,$sex){
 		$bom=date('Y-m-01 00:00:00');
 		$eom=date('Y-m-t 23:59:59');
 		$result = DB::table('searchlog')
@@ -34,32 +34,44 @@ class StaffDeviceController extends Controller
 		->orderBy(DB::raw('count(searchwords)'),'desc')
 		->limit(3)
 		->get();
+        $sexnumber = 1;
+		if (strcmp($sex, "男性") == 0) {
+			$sexnumber　= 1;
+		}
+		else{
+			$sexnumber　= 2;
+		}
+		var_dump($sex);
+		var_dump($sexnumber);
+
+		$a = DB::table('orders')
+            ->join('t_users', 'orders.t_id' ,'=', 't_users.t_id')
+            ->join('books','books.ISBN','=','orders.ISBN')
+            ->select('books.name','books.cover')
+            ->where('sex',$sexnumber)
+            ->where('age',$age)
+            /*->where('orders.t_id','t_users.t_id')*/
+            ->get();
+            var_dump($a);
+
+
+		/*$a= DB::table('orders','t_users')
+		->select('ISBN')
+		->where('sex',$sexnumber)
+		->where('age',$age)
+		->where('t_id','t_id')
+		->get();*/
 		/*$result_array = array();
 		foreach($result as $chunk){
 	    array_push($result_array,array('label'=>$chunk->searchwords, 'y'=>$chunk->count));
 		}*/
-		return view('staffsearch',compact('age','sex','result'));
+		return view('staffsearch',compact('age','sex','result','a'));
 	}
-	public function search(Request $request){
-		$this->validate($request, ['searchword' => 'required']);
-    	$searchword = $request->input('searchword');
-    	
-		$words = str_replace("　", " ", $searchword);
-		
-		DB::table('searchlog')->insert(['searchwords' => $words]);
-
-		$word_array = preg_split("/[ ]+/",$words);
+	public function staffsearchbooks($age,$sex,$searchwords){
 		$query = Book::query();
-		foreach ($word_array as $word) {
-			$query->where('name', 'like', '%'.$word.'%');
-		}
-		if($query->count() == 0) {
-			foreach ($word_array as $word) {
-				$query->orwhere('name', 'like', '%'.$word.'%');
-			}
-		}
+			$query->where('name', 'like', '%'.$searchwords.'%');
 		$books = $query->paginate(16);
-    	return view('staffsearchresult', compact('books', 'searchword'));
+    	return view('staffsearchresult', compact('books', 'searchwords'));
 	}
 	
 }
