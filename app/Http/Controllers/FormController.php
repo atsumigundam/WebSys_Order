@@ -17,15 +17,16 @@ class FormController extends Controller
     {
     	$first_name = $request->input('first_name');
     	$last_name = $request->input('last_name');
+        $t_id = $request->input('t_id');
     	$tel = $request->input('tel');
     	$email = $request->input('email');
 
         $shop = $request->session()->get('shop');
         $book = $request->session()->get('book');
 
-    	session(['first_name' => $first_name, 'last_name' => $last_name, 'tel' => $tel, 'email' => $email]);
+    	session(['first_name' => $first_name, 'last_name' => $last_name, 't_id' => $t_id, 'tel' => $tel, 'email' => $email]);
 
-    	return view('confirm', ['first_name' => $first_name, 'last_name' => $last_name, 'tel' => $tel, 'email' => $email,
+    	return view('confirm', ['first_name' => $first_name, 'last_name' => $last_name,'t_id' => $t_id, 'tel' => $tel, 'email' => $email,
     		'shop_id' => $shop->id, 'shop_name' => $shop->name, 'shop_address' => $shop->address, 'shop_phone' => $shop->phone,
             'book_name' => $book->name, 'book_author' => $book->author, 'book_publisher' => $book->publisher, 'book_date' => $book->date, 'book_price' => $book->price, 'book_cover' => $book->cover]);
     }
@@ -41,6 +42,7 @@ class FormController extends Controller
 
     	$first_name = $request->session()->get('first_name');
     	$last_name = $request->session()->get('last_name');
+        $t_id = $request->session()->get('t_id');
         $tel = $request->session()->get('tel');
         $email = $request->session()->get('email');
 
@@ -51,7 +53,7 @@ class FormController extends Controller
 
         DB::table('orders')->insert(
             ['ISBN' => $book->ISBN, '店舗ID' => $shop->id, '注文年月日時分' => $date->format('Y-m-d H:i:s'), '注文者名' => $full_name,
-                '電話番号' => $tel, 'メールアドレス' => $email]
+                '電話番号' => $tel, 'メールアドレス' => $email, 't_id' => $t_id]
         );
 
         //注文番号の取得

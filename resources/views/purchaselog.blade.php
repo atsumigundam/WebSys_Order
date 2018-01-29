@@ -12,12 +12,67 @@
 @endsection
 
 @section('content')
-	<div class="container">
-		<h1 style="text-align: right;">ここもないよ</h1>
+	<ul class="nav nav-tabs" id="myTab" role="tablist">
+	<li class="nav-item">
+		<a class="nav-link active" id="current-tab" data-toggle="tab" href="#current" role="tab" aria-controls="current" aria-selected="true">現在のデータ</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" id="past-tab" data-toggle="tab" href="#past" role="tab" aria-controls="past" aria-selected="false">過去のデータ</a>
+	</li>
+</ul>
+<div class="tab-content" id="myTabContent">
+	<div class="tab-pane fade show active" id="current" role="tabpanel" aria-labelledby="current-tab">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="card box mt-4">
+						<div id="chart_word_current"></div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="card box mt-4">
+						<div id="chart_count_current"></div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="card box mt-4">
+						<div id="chart_word_multi"></div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="card box mt-4">
+						<div id="chart_no_hit_word"></div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
+	<div class="tab-pane fade" id="past" role="tabpanel" aria-labelledby="past-tab">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="card box mt-4">
+						<div id="chart_word_preview"></div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="card box mt-4">
+						<div id="chart_count_preview"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 @endsection
 
 @section('script')
 	@parent
-	<script type="text/javascript" src="{{ asset('js/chart.js') }}"></script>
+	<script type="text/javascript">
+		var month_current = @json($month_current);
+		var purchase_publisher = @json($purchase_publisher);
+	</script>
+	<script type="text/javascript" src="{{ asset('js/chart_purchase.js') }}"></script>
 @endsection

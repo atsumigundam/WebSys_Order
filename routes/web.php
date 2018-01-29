@@ -39,9 +39,7 @@ Route::get('/searchlog', 'SearchLogController@index');
 
 Route::get('/accesslog', 'AccessLogController@index');
 
-Route::get('/purchaselog', function() {
-	return view('purchaselog');
-});
+Route::get('/purchaselog', 'PurchaseLogController@index');
 
 Route::get('/search4kids', function() {
 	return view('search4kids');
