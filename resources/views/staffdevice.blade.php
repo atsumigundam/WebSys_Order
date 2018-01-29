@@ -6,7 +6,7 @@
 	<title>staffdevice</title>
 
 </head>
-<link rel="stylesheet" href="staffdevice.css"  type="text/css">
+<link rel="stylesheet" href="{{ asset('/css/staffdevice.css') }}"  type="text/css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
 
 <body>
@@ -61,8 +61,10 @@
 					
 							
 							<div class="form col-sm-7 offset-sm-2">
+								<form action="staffdevice/search" method="get">
 								<input type="text" name="searchword" class="form-control">
 								<button class="btn btn-secondary col-sm-2 offset-sm-5" type="submit">検索</button>
+								</form>
 							</div>
 						</div>
 					</div>

@@ -59,3 +59,5 @@ Route::get('/search/{age}/{sex}','StaffDeviceController@searchlog');
 
 Route::get('/search/{age}/{sex}/{searchwords}','StaffDeviceController@staffsearchbooks');
 
+Route::get('/staffdevice/search','StaffDeviceController@staffsearchbook');
+
