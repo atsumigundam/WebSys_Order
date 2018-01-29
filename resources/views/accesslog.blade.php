@@ -38,13 +38,22 @@
 								<label class="card-header access-header">{{ $date }}</label>
 								<ul class="list-group list-group-flush">
 									@foreach ($books as $book)
-										@if (!empty($book))
-											<a href="#" class="list-group-item">
-												<span class="badge badge-default">{{ $book['time'] }}</span>
-												<label class="no-margin">{{ $book['name'] }}</label>
-											</a>
+										@if ($book['id'] != 0)
+											<div id="accordion">
+												<a href="#" class="list-group-item" id="{{ $book['id'] }}" data-toggle="collapse" data-target="#collapse_{{ $book['id'] }}" aria-expanded="true" aria-controls="collapse">
+													<span class="badge badge-default">{{ $book['time'] }}</span>
+													<label class="no-margin">{{ $book['name'] }}</label>
+												</a>
+												<div id="collapse_{{ $book['id'] }}" class="collapse" aria-labelledby="{{ $book['id'] }}" data-parent="#accordion">
+											    	<div class="card-body">
+											    		{{ $book['searchword'] }}
+											    	</div>
+											    </div>
+											</div>
 										@else
-											<label class="no-margin">マイケル</label>
+											<div class="list-group-item">
+												<label>---</label>
+											</div>
 										@endif
 									@endforeach
 								</ul>

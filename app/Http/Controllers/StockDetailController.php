@@ -8,11 +8,12 @@ use Illuminate\Support\Facades\DB;
 
 class StockDetailController extends Controller
 {   
-    public function index($isbn)
+    public function index($isbn, Request $request)
     {
+        $searchword = $request->session()->get('searchword');
         // クリックされた本をアクセスログに追加
         DB::table('accesslog')
-            ->insert(['ISBN' => $isbn]);
+            ->insert(['ISBN' => $isbn, 'searchword' => $searchword]);
 
         $shop1 = DB::table('shop')->where('id', [0001])->first();
         $shop2 = DB::table('shop')->where('id', [0002])->first();

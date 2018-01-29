@@ -33,7 +33,7 @@ class AccessLogController extends Controller
 
         $access_recent = DB::table('accesslog')
                         ->join('books', 'accesslog.ISBN', '=', 'books.ISBN')
-                        ->select(DB::raw('books.name, date_format(created_at, "%Y-%m-%d") as date, date_format(created_at, "%k:%i") as time'))
+                        ->select(DB::raw('books.name, date_format(created_at, "%Y-%m-%d") as date, date_format(created_at, "%k:%i") as time, id, searchword'))
                         ->whereIn(DB::raw('date_format(created_at, "%Y%m%d")'), function($query) {
                             $query->select(DB::raw('max(date_format(created_at, "%Y%m%d"))'));
                         })
@@ -44,13 +44,13 @@ class AccessLogController extends Controller
 
         $access_recent_array = array();
         foreach ($access_recent as $chunk) {
-            array_push($access_recent_array, array('name'=>$chunk->name, 'time'=>$chunk->time));
+            array_push($access_recent_array, array('id' => $chunk->id, 'name' => $chunk->name, 'searchword' => $chunk->searchword, 'time' => $chunk->time));
         }
         if (count($access_recent_array) > 6) {
             array_splice($access_recent_array, 6, count($access_recent_array) - 6);
         } else {
             while (count($access_recent_array) < 6) {
-                array_push($access_recent_array, array('name' => '--', 'time' => '--:--'));
+                array_push($access_recent_array, array('id' => 0, 'name' => '--', 'time' => '--:--'));
             }
         }
 
