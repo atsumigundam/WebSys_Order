@@ -41,18 +41,32 @@ class StaffDeviceController extends Controller
 		else{
 			$sexnumber　= 2;
 		}
-		var_dump($sex);
-		var_dump($sexnumber);
-
 		$a = DB::table('orders')
             ->join('t_users', 'orders.t_id' ,'=', 't_users.t_id')
             ->join('books','books.ISBN','=','orders.ISBN')
-            ->select('books.name','books.cover')
+            ->select(DB::raw('books.name,books.cover,count(orders.ISBN) as count'))
             ->where('sex',$sexnumber)
             ->where('age',$age)
-            /*->where('orders.t_id','t_users.t_id')*/
+            ->groupBy('orders.ISBN')
+            ->orderBy(DB::raw('count'),'desc')
+            ->limit(3)
             ->get();
-            var_dump($a);
+        /* $a = DB::table('orders','t_users','books')
+            ->join('t_users', 'orders.t_id' ,'=', 't_users.t_id')
+            ->join('books','books.ISBN','=','orders.ISBN')
+            ->select(DB::raw('books.name,cover,count(books.ISBN) as count'))
+            ->where('books.ISBN','orders.ISBN')
+            ->where('orders.t_id','t_users.t_id')
+            ->where('sex',$sexnumber)
+            ->where('age',$age)
+            ->groupBy('orders.ISBN')
+            ->orderBy(DB::raw('count(orders.ISBN)'),'desc')
+            ->limit(3)
+            ->where('orders.t_id','t_users.t_id')
+            ->get();/*
+            
+
+
 
 
 		/*$a= DB::table('orders','t_users')
@@ -73,5 +87,43 @@ class StaffDeviceController extends Controller
 		$books = $query->paginate(16);
     	return view('staffsearchresult', compact('books', 'searchwords'));
 	}
+
+	public function staffsearchbook(Request $request){
+		$searchwords = $request->input('searchwords');
+		$query = Book::query();
+			$query->where('name', 'like', '%'.$searchwords.'%');
+		$books = $query->paginate(16);
+    	return view('staffsearchresult', compact('books', 'searchwords'));
+
+	}
+
+	public function staffsearch(Request $request) {
+    	$this->validate($request, ['searchword' => 'required']);
+    	$searchwords = $request->input('searchword');
+    	//全角空白があったら半角空白にそろえる
+		$words = str_replace("　", " ", $searchwords);
+		
+		//空白文字で検索ワードを分割	
+		$word_array = preg_split("/[ ]+/",$words);
+		$query = Book::query();
+		foreach ($word_array as $word) {
+			$query->where('name', 'like', '%'.$word.'%');
+		}
+		// ペジネーションによるinsertの重複を防止
+		if ($request->input('page') == 0) {
+			// 検索ヒット数が0の場合hitsカラムに0，ヒットした場合1を入れる
+			$hit_count = $query->count() != 0;
+			//検索ワードをログテーブルに追加
+			DB::table('searchlog')->insert(['searchwords' => $words, 'hits' => $hit_count]);
+		}
+		if($query->count() == 0) {
+			foreach ($word_array as $word) {
+				$query->orwhere('name', 'like', '%'.$word.'%');
+			}
+		}
+		$books = $query->paginate(16);
+		
+    	return view('staffsearchresult', compact('books', 'searchwords'));
 	
+}
 }

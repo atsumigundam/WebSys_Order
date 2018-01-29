@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<title>お客様登録</title>
 </head>
-<link rel="stylesheet" href="./staffdevice.css"  type="text/css">
+<link rel="stylesheet" href="{{ asset('/css/staffdevice.css') }}"  type="text/css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
 
 <body>
@@ -19,6 +19,7 @@
 		<div class="row">
 			<div class="col-sm-7 offset-sm-3">
 				<label>「{{$searchwords}}」の検索結果</label>
+				{{var_dump($searchwords)}}
 			</div>
 			@foreach ($books->chunk(4) as $chunk)
 			<div class="row">
