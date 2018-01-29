@@ -89,6 +89,10 @@
 						<label class="col-sm-10 col-form-label" name="last-name" id="last_name">{{ $last_name }}</label>
 					</div>
 					<div class="form-group row">
+						<label for="t_id" class="col-sm-2 col-sm-form-label">Tカード番号</label>
+						<label class="col-sm-10 col-form-label" name="t_id" id="t_id">{{ $t_id }}</label>
+					</div>
+					<div class="form-group row">
 						<label for="tel" class="col-sm-2 col-sm-form-label">電話番号</label>
 						<label class="col-sm-10 col-form-label" name="tel" id="tel">{{ $tel }}</label>
 					</div>

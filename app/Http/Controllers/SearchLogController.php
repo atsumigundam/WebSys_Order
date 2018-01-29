@@ -21,12 +21,30 @@ class SearchLogController extends Controller
     					->whereBetween('created_at', [$bom, $eom])
     					->groupBy('searchwords')
     					->orderBy(DB::raw('count(searchwords)'), 'desc')
+                        ->limit(5)
     					->get();
+
+        // 上位5の集計
+        $count_top5 = 0;
+        foreach($word_result as $chunk) {
+            $count_top5 += $chunk->count;
+        }
+        // 期間中の全ワードの集計を取得
+        $count_all = DB::table('searchlog')
+                        ->select(DB::raw('count(searchwords) as count'))
+                        ->whereBetween('created_at', [$bom, $eom])
+                        ->get()
+                        ->first()
+                        ->count;
+        $count_other = $count_all - $count_top5;
 
  	   	$word_result_array = array();
     	foreach ($word_result as $chunk) {
     		array_push($word_result_array, array('label'=>$chunk->searchwords, 'y'=>$chunk->count));
     	}
+
+        // その他を追加
+        array_push($word_result_array, array('label'=>'その他', 'y'=>$count_other));
 
         // 半角スペースを含む検索ワードの集計を取得
         $word_multi = array_filter($word_result_array, function($v) {
@@ -38,6 +56,7 @@ class SearchLogController extends Controller
         // 今月の日別検索数を取得
     	$count_result = DB::table('searchlog')
     					->select(DB::raw('date_format(created_at, "%Y-%m-%d") as date, date_format(created_at, "%d") as day, count(searchwords) as count'))
+                        ->whereBetween('created_at', [$bom, $eom])
     					->groupBy(DB::raw('date_format(created_at, "%Y%m%d")'))
     					->get();
 

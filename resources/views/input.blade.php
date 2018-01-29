@@ -103,6 +103,17 @@
                 		@endif
 					</div>
 					<div class="form-group row">
+						<label for="t_id" class="col-sm-2 col-form-label">Tカード番号</label>
+						<div class="col-sm-10">
+							<input class="form-control" type="text" name="t_id" id="t_id" placeholder="00000000" value="{{ old('t_id') }}">
+						</div>
+						@if ($errors->has('t-card'))
+                    		<span class="help-block">
+                        		<strong>{{ $errors->first('t_id') }}</strong>
+                    		</span>
+                		@endif
+					</div>
+					<div class="form-group row">
 						<label for="tel" class="col-sm-2 col-form-label">電話番号</label>
 						<div class="col-sm-10">
 							<input class="form-control" type="tel" name="tel" id="tel" placeholder="000-0000-0000" value="{{ old('tel') }}">
