@@ -24,12 +24,30 @@ class AccessLogController extends Controller
     					->whereBetween('created_at', [$bom, $eom])
     					->groupBy('books.ISBN')
     					->orderBy(DB::raw('count(books.ISBN)'), 'desc')
+                        ->limit(5)
     					->get();
+
+        // 上位5の集計
+        $count_top5 = 0;
+        foreach($access_crrent as $chunk) {
+            $count_top5 += $chunk->count;
+        }
+
+        $count_all = DB::table('accesslog')
+                        ->select(DB::raw('count(ISBN) as count'))
+                        ->whereBetween('created_at', [$bom, $eom])
+                        ->get()
+                        ->first()
+                        ->count;
+        $count_other = $count_all - $count_top5;
 
  	   	$access_current_array = array();
     	foreach ($access_crrent as $chunk) {
     		array_push($access_current_array, array('label'=>$chunk->name, 'y'=>$chunk->count));
     	}
+
+        // その他を追加
+        array_push($access_current_array, array('label'=>'その他', 'y'=>$count_other));
 
         $access_recent = DB::table('accesslog')
                         ->join('books', 'accesslog.ISBN', '=', 'books.ISBN')

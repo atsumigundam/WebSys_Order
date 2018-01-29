@@ -26,24 +26,12 @@
 			<div class="row">
 				<div class="col-md-6">
 					<div class="card box mt-4">
-						<div id="chart_word_current"></div>
+						<div id="chart_purchase_publisher"></div>
 					</div>
 				</div>
 				<div class="col-md-6">
 					<div class="card box mt-4">
-						<div id="chart_count_current"></div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-6">
-					<div class="card box mt-4">
-						<div id="chart_word_multi"></div>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="card box mt-4">
-						<div id="chart_no_hit_word"></div>
+						<div id="chart_purchase_price"></div>
 					</div>
 				</div>
 			</div>

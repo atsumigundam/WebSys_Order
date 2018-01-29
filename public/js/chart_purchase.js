@@ -1,6 +1,6 @@
 // 購入ログ
 function create_chart_purchase(month, chart_purchase_id, title, data) {
-	var chart_acess = new CanvasJS.Chart(chart_access_id, {
+	var chart_purchase = new CanvasJS.Chart(chart_purchase_id, {
 		animationEnabled: true,
 		animationDuration: 800,
 		title: { text: title, fontFamily: 'Arial', fontColor: '#222', fontSize: 16, margin: 15 },
@@ -12,7 +12,7 @@ function create_chart_purchase(month, chart_purchase_id, title, data) {
 			dataPoints: data
 		}]
 	});
-	chart_acess.render();
+	chart_purchase.render();
 
 	$(`#${chart_purchase_id}`).height(chart_purchase.height);
 	$parent = $(`#${chart_purchase_id}`).parent();
@@ -21,4 +21,4 @@ function create_chart_purchase(month, chart_purchase_id, title, data) {
 
 var data_purchase_publischer = purchase_publisher;
 
-create_chart_access(month_current, "chart_purchase_publisher", "購入された出版社上位", data_purchase_publischer);
+create_chart_purchase(month_current, "chart_purchase_publisher", "購入された出版社上位", data_purchase_publischer);
