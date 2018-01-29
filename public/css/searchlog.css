@@ -12,3 +12,16 @@
 .canvasjs-chart-credit {
    display: none;
 }
+
+.no-margin {
+	margin: 0;
+}
+
+.align-left {
+	text-align: left;
+}
+
+.access-header {
+	background-color: #1e90ff;
+	color: #FFF;
+}

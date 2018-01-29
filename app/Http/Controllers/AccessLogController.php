@@ -31,6 +31,29 @@ class AccessLogController extends Controller
     		array_push($access_current_array, array('label'=>$chunk->name, 'y'=>$chunk->count));
     	}
 
-    	return view('accesslog', ['month_current' => $month_current, 'access_current_array' => $access_current_array]);
+        $access_recent = DB::table('accesslog')
+                        ->join('books', 'accesslog.ISBN', '=', 'books.ISBN')
+                        ->select(DB::raw('books.name, date_format(created_at, "%Y-%m-%d") as date, date_format(created_at, "%k:%i") as time'))
+                        ->whereIn(DB::raw('date_format(created_at, "%Y%m%d")'), function($query) {
+                            $query->select(DB::raw('max(date_format(created_at, "%Y%m%d"))'));
+                        })
+                        ->orderBy('time', 'desc')
+                        ->get();
+
+        $date = $access_recent->first()->date;
+
+        $access_recent_array = array();
+        foreach ($access_recent as $chunk) {
+            array_push($access_recent_array, array('name'=>$chunk->name, 'time'=>$chunk->time));
+        }
+        if (count($access_recent_array) > 6) {
+            array_splice($access_recent_array, 6, count($access_recent_array) - 6);
+        } else {
+            while (count($access_recent_array) < 6) {
+                array_push($access_recent_array, array('name' => '--', 'time' => '--:--'));
+            }
+        }
+
+    	return view('accesslog', ['month_current' => $month_current, 'access_current_array' => $access_current_array, 'books' => $access_recent_array, 'date' => $date ]);
     }
 }

@@ -33,19 +33,20 @@
 					<div class="card box mt-4" id="recent">
 						<label>最近のアクセス</label>
 						<div>
-							<label>1月</label>
-							<div class="card" style="text-align: left;">
-								<label class="card-header" style="background-color: #1e90ff; color: #FFF;">2018/1/29</label>
+							<label>{{ $month_current }}月</label>
+							<div class="card align-left">
+								<label class="card-header access-header">{{ $date }}</label>
 								<ul class="list-group list-group-flush">
-									<a href="#" class="list-group-item">
-										<label style="margin: 0;">1:11</label>
-										<label style="margin: 0;">風天 渥美清のうた</label>
-									</a>
-									<a href="#" class="list-group-item">リスト2</a>
-									<a href="#" class="list-group-item">リスト3</a>
-									<a href="#" class="list-group-item">リスト4</a>
-									<a href="#" class="list-group-item">リスト5</a>
-									<a href="#" class="list-group-item">リスト6</a>
+									@foreach ($books as $book)
+										@if (!empty($book))
+											<a href="#" class="list-group-item">
+												<span class="badge badge-default">{{ $book['time'] }}</span>
+												<label class="no-margin">{{ $book['name'] }}</label>
+											</a>
+										@else
+											<label class="no-margin">マイケル</label>
+										@endif
+									@endforeach
 								</ul>
 							</div>
 						</div>
