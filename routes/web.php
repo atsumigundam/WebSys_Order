@@ -37,9 +37,7 @@ Route::get('/analysis', function() {
 
 Route::get('/searchlog', 'SearchLogController@index');
 
-Route::get('/accesslog', function() {
-	return view('accesslog');
-});
+Route::get('/accesslog', 'AccessLogController@index');
 
 Route::get('/purchaselog', function() {
 	return view('purchaselog');

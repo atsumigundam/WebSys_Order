@@ -26,12 +26,29 @@
 			<div class="row">
 				<div class="col-md-6">
 					<div class="card box mt-4">
-						<div id="chart_word_current"></div>
+						<div id="chart_access_current"></div>
 					</div>
 				</div>
 				<div class="col-md-6">
-					<div class="card box mt-4">
-						<div id="chart_count_current"></div>
+					<div class="card box mt-4" id="recent">
+						<label>最近のアクセス</label>
+						<div>
+							<label>1月</label>
+							<div class="card" style="text-align: left;">
+								<label class="card-header" style="background-color: #1e90ff; color: #FFF;">2018/1/29</label>
+								<ul class="list-group list-group-flush">
+									<a href="#" class="list-group-item">
+										<label style="margin: 0;">1:11</label>
+										<label style="margin: 0;">風天 渥美清のうた</label>
+									</a>
+									<a href="#" class="list-group-item">リスト2</a>
+									<a href="#" class="list-group-item">リスト3</a>
+									<a href="#" class="list-group-item">リスト4</a>
+									<a href="#" class="list-group-item">リスト5</a>
+									<a href="#" class="list-group-item">リスト6</a>
+								</ul>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -70,5 +87,9 @@
 
 @section('script')
 	@parent
-	<script type="text/javascript" src="{{ asset('js/chart.js') }}"></script>
+	<script type="text/javascript">
+		var month_current = @json($month_current);
+		var access_current = @json($access_current_array);
+	</script>
+	<script type="text/javascript" src="{{ asset('js/chart_access.js') }}"></script>
 @endsection
