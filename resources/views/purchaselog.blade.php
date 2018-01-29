@@ -26,6 +26,45 @@
 			<div class="row">
 				<div class="col-md-6">
 					<div class="card box mt-4">
+						<div id="chart_purchase_book"></div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="card box mt-4" id="recent">
+						<label>最近の注文</label>
+						<div>
+							<label>{{ $month_current }}月</label>
+							<div class="card align-left">
+								<label class="card-header access-header">{{ $date }}</label>
+								<ul class="list-group list-group-flush">
+									@foreach ($books as $book)
+										@if ($book['id'] != 0)
+											<div id="accordion">
+												<a href="#" class="list-group-item" id="{{ $book['id'] }}" data-toggle="collapse" data-target="#collapse_{{ $book['id'] }}" aria-expanded="true" aria-controls="collapse">
+													<span class="badge badge-default">{{ $book['time'] }}</span>
+													<label class="no-margin">{{ $book['name'] }}</label>
+												</a>
+												<div id="collapse_{{ $book['id'] }}" class="collapse" aria-labelledby="{{ $book['id'] }}" data-parent="#accordion">
+											    	<div class="card-body">
+											    		注文店: {{ $book['shop'] }}
+											    	</div>
+											    </div>
+											</div>
+										@else
+											<div class="list-group-item">
+												<label>---</label>
+											</div>
+										@endif
+									@endforeach
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="card box mt-4">
 						<div id="chart_purchase_publisher"></div>
 					</div>
 				</div>
@@ -60,7 +99,9 @@
 	@parent
 	<script type="text/javascript">
 		var month_current = @json($month_current);
+		var purchase_book = @json($purchase_book);
 		var purchase_publisher = @json($purchase_publisher);
+		var price_range = @json($price_range);
 	</script>
 	<script type="text/javascript" src="{{ asset('js/chart_purchase.js') }}"></script>
 @endsection
