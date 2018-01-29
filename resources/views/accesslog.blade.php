@@ -46,7 +46,7 @@
 												</a>
 												<div id="collapse_{{ $book['id'] }}" class="collapse" aria-labelledby="{{ $book['id'] }}" data-parent="#accordion">
 											    	<div class="card-body">
-											    		{{ $book['searchword'] }}
+											    		検索ワード: {{ $book['searchword'] }}
 											    	</div>
 											    </div>
 											</div>
@@ -59,18 +59,6 @@
 								</ul>
 							</div>
 						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-6">
-					<div class="card box mt-4">
-						<div id="chart_word_multi"></div>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="card box mt-4">
-						<div id="chart_no_hit_word"></div>
 					</div>
 				</div>
 			</div>
