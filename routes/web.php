@@ -37,13 +37,9 @@ Route::get('/analysis', function() {
 
 Route::get('/searchlog', 'SearchLogController@index');
 
-Route::get('/accesslog', function() {
-	return view('accesslog');
-});
+Route::get('/accesslog', 'AccessLogController@index');
 
-Route::get('/purchaselog', function() {
-	return view('purchaselog');
-});
+Route::get('/purchaselog', 'PurchaseLogController@index');
 
 Route::get('/search4kids', function() {
 	return view('search4kids');
@@ -60,4 +56,6 @@ Route::get('/staffdeviceconfirm','StaffDeviceController@IDconfirm');
 Route::get('/search/{age}/{sex}','StaffDeviceController@searchlog');
 
 Route::get('/search/{age}/{sex}/{searchwords}','StaffDeviceController@staffsearchbooks');
+
+Route::get('/staffdevice/search','StaffDeviceController@staffsearchbook');
 

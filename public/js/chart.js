@@ -3,8 +3,8 @@ function create_chart_word(month, chart_word_id, title, data) {
 	var chart_word = new CanvasJS.Chart(chart_word_id, {
 		animationEnabled: true,
 		animationDuration: 800,
-		title: { text: title, fontColor: '#222', fontSize: 16, margin: 15 },
-		subtitles: [{ text: `${month}月`, fontWeight: "normal" }],
+		title: { text: title, fontFamily: 'Arial', fontColor: '#222', fontSize: 16, margin: 15},
+		subtitles: [{ text: `${month}月`, fontWeight: "normal", fontFamily: 'Arial' }],
 		data: [{
 			type: 'pie',
 			toolTipContent: "<b>{label}</b>: {y}件",
@@ -23,7 +23,7 @@ function create_chart_count(chart_count_id, data) {
 		animationEnabled: true,
 		animationDuration: 800,
 		theme: "light2",
-		title: { text: `${data[0].x.getMonth()+1}月の検索数`, fontColor: '#222', fontSize: 16, fontWeight: "normal", margin: 15 },
+		title: { text: `${data[0].x.getMonth()+1}月の検索数`, fontFamily: 'Arial', fontColor: '#222', fontSize: 16, fontWeight: "normal", margin: 15 },
 		axisX:{
 			valueFormatString: "DD MMM",
 			crosshair: {
