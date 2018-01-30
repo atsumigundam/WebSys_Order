@@ -46,8 +46,19 @@ class SearchLogController extends Controller
         // その他を追加
         array_push($word_result_array, array('label'=>'その他', 'y'=>$count_other));
 
+        //今月のすべての検索ワードの集計を取得
+        $word_result_all = DB::table('searchlog')
+                        ->select(DB::raw('searchwords, count(searchwords) as count'))
+                        ->whereBetween('created_at', [$bom, $eom])
+                        ->groupBy('searchwords')
+                        ->orderBy(DB::raw('count(searchwords)'), 'desc')
+                        ->get();
+        $word_result_all_array = array();
+        foreach ($word_result_all as $chunk) {
+            array_push($word_result_all_array, array('label'=>$chunk->searchwords, 'y'=>$chunk->count));
+        }
         // 半角スペースを含む検索ワードの集計を取得
-        $word_multi = array_filter($word_result_array, function($v) {
+        $word_multi = array_filter($word_result_all_array, function($v) {
             return strpos($v['label'], ' ') !== false;
         });
         // indexを振り直す
