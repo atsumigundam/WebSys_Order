@@ -37,6 +37,8 @@ function create_chart_price(month, id, title, data) {
 	chart_price.render();
 
 	$(`#${id}`).height(chart_price.height);
+	$parent = $(`#${id}`).parent();
+	$parent.height($(`#recent`).height());
 }
 
 var data_purchase_book = purchase_book;
