@@ -53,7 +53,7 @@ class AccessLogController extends Controller
                         ->join('books', 'accesslog.ISBN', '=', 'books.ISBN')
                         ->select(DB::raw('books.name, date_format(created_at, "%Y-%m-%d") as date, date_format(created_at, "%k:%i") as time, id, searchword'))
                         ->whereIn(DB::raw('date_format(created_at, "%Y%m%d")'), function($query) {
-                            $query->select(DB::raw('max(date_format(created_at, "%Y%m%d"))'));
+                            $query->select(DB::raw('max(date_format(created_at, "%Y%m%d")) from accesslog'));
                         })
                         ->orderBy('time', 'desc')
                         ->get();

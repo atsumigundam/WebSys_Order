@@ -101,7 +101,7 @@ class PurchaseLogController extends Controller
                         ->join('shop', 'orders.店舗ID', '=', 'shop.id')
                         ->select(DB::raw('books.name, date_format(注文年月日時分, "%Y-%m-%d") as date, date_format(注文年月日時分, "%k:%i") as time, 注文番号 as id, shop.name as shop'))
                         ->whereIn(DB::raw('date_format(注文年月日時分, "%Y%m%d")'), function($query) {
-                            $query->select(DB::raw('max(date_format(注文年月日時分, "%Y%m%d"))'));
+                            $query->select(DB::raw('max(date_format(注文年月日時分, "%Y%m%d")) from orders'));
                         })
                         ->orderBy('time', 'desc')
                         ->get();

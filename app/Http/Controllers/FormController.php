@@ -48,6 +48,7 @@ class FormController extends Controller
 
         $full_name = $first_name.' '.$last_name;
         
+        date_default_timezone_set('Asia/Tokyo');       
         //現在時刻の取得
         $date = new DateTime();
 
