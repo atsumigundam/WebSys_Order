@@ -15,6 +15,8 @@ function create_chart_purchase(month, chart_purchase_id, title, data) {
 	chart_purchase.render();
 
 	$(`#${chart_purchase_id}`).height(chart_purchase.height);
+	$parent = $(`#${chart_purchase_id}`).parent();
+	$parent.height($(`#recent`).height());
 }
 
 function create_chart_price(month, id, title, data) {
